@@ -1,0 +1,14 @@
+Package: satin
+Title: A highly opinionated framework for building shiny dashboards.
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Ramnath",
+           family = "Vaidyanathan",
+           role = c("aut", "cre"),
+           email = "ramnath@datacamp.com")
+Description: A highly opinionated framework for building shiny dashboards
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+URL: https://github.com/ramnathv/satin
+BugReports: https://github.com/ramnathv/satin/issues
