@@ -30,7 +30,7 @@ You can easily scaffold a `satin` dashboard app using the `New Project` menu in 
    
 <br/>
 
-2. The layout for the dashboard is specified in [YAML](_site.yml).
+2. The layout for the dashboard is specified in YAML.
 
    - Each `menu` item becomes a menu item in the sidebar.
    - If a `menu` item has more than 1 child, the children become subitems.
