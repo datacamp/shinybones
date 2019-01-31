@@ -1,0 +1,8 @@
+Binding: create_satin_app
+Title: Create a Satin shinydashboard app!
+OpenFiles: app.R, _site.yml
+
+Parameter: scaffold_type
+Widget: SelectInput
+Label: Select Scaffold Type
+Fields: simple, basic
