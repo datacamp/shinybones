@@ -1,11 +1,13 @@
 #' Create tab items
 #'
 #' @param config Dashboard configuration read from _site.yml
-#' @param data_global Global data passed to all modules
+#' @param data_global Global data passed automatically from app.R
+#' @param display_tab A function that returns a boolean indicating whether a tab is
+#'   to be displayed in the UI
 #' @export
 #' @importFrom purrr map
 #' @importFrom shiny NS tabPanel tabsetPanel
-create_tab_items <- function(config, data_global, display_tab = function(x){TRUE}){
+st_create_tab_items <- function(config, data_global, display_tab = function(x){TRUE}){
   modules <- get_modules(config)
   modules %>%
     purrr::map(~ {
@@ -34,7 +36,7 @@ create_tab_items <- function(config, data_global, display_tab = function(x){TRUE
 #' @param config Dashboard configuration read from _site.yml
 #' @param data_global Global data passed to the sidebar
 #' @export
-call_all_modules <- function(config, data_global, display_tab = function(x){FALSE}){
+st_call_all_modules <- function(config, data_global, display_tab = function(x){FALSE}){
   modules <- get_modules(config)
   modules %>%
     walk(~ {
