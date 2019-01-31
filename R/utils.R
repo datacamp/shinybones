@@ -2,11 +2,14 @@
 #'
 #' @export
 #' @importFrom purrr walk
+#' @importFrom htmltools span
 source_dirs <- function(..., recursive = FALSE){
   list(...) %>%
     purrr::walk(~ {
-      dir(.x, full.names = TRUE, pattern = '\\.[r|R]$', recursive = recursive) %>%
-        purrr::walk(source)
+      dir(.x, full.names = TRUE, pattern = '\\.[r|R]$',
+        recursive = recursive
+      ) %>%
+      purrr::walk(source)
     })
 }
 
@@ -32,7 +35,7 @@ default_placeholder_ui <- function(title, text) {
   function(id, ...) {
     ns <- NS(id)
     shiny::fluidRow(
-      box(
+      shinydashboard::box(
         title = title,
         span(class = "text-danger", text),
         solidHeader = TRUE
