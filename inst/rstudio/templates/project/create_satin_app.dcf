@@ -5,4 +5,4 @@ OpenFiles: app.R, _site.yml
 Parameter: scaffold_type
 Widget: SelectInput
 Label: Select Scaffold Type
-Fields: simple, basic
+Fields: simple
