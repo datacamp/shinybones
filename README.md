@@ -12,6 +12,12 @@ You can install `satin` from github:
 remotes::install_github('ramnathv/satin')
 ```
 
+## Usage
+
+You can easily scaffold a `satin` dashboard app using the `New Project` menu in `RStudio`
+
+![satin-new-project](https://i.imgur.com/Cs9Tzxk.png)
+
 ## Conventions
 
 1. A module referred to as `foo` needs to specify the following functions:
