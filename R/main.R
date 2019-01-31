@@ -36,7 +36,7 @@ st_create_tab_items <- function(config, data_global, display_tab = function(x){T
 #' @param config Dashboard configuration read from _site.yml
 #' @param data_global Global data passed to the sidebar
 #' @export
-st_call_all_modules <- function(config, data_global, display_tab = function(x){FALSE}){
+st_call_all_modules <- function(config, data_global, display_tab = function(x){TRUE}){
   modules <- get_modules(config)
   modules %>%
     walk(~ {
