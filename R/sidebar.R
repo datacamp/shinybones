@@ -12,7 +12,7 @@ st_create_sidebar <- function(config, data_global,
       if (!display_page(.$text)){
         return(NULL)
       }
-      if (length(.$menu) > 1){
+      if (length(.$menu) >= 1){
         menuItem(.$text, tabName = make_tab_name(.), icon = icon(.$icon),
           .$menu %>%
              map(~ {
