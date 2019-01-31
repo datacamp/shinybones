@@ -24,7 +24,7 @@ You can easily scaffold a `satin` dashboard app using the `New Project` menu in 
 
    - ui: `foo_ui`
    - server: `foo`
-   - sidebar: `foo_sidebar_ui` (optional)
+   - sidebar: `foo_ui_sidebar` (optional)
    
 <br/>
 
