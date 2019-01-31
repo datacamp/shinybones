@@ -18,18 +18,29 @@
 #'    output$num_text <- renderText({input$num})
 #' }
 #' preview_module('slider_text')
-preview_module <- function(module_name, name = 'module', ...){
+preview_module <- function(module_name, name = 'module', use_box = FALSE, ...){
   ui_fun <- match.fun(paste(module_name, 'ui', sep = "_"))
+  my_ui <- if (use_box){
+    shiny::fluidRow(
+      shinydashboard::box(
+        ui_fun(name, ...)
+      )
+    )
+  } else {
+    ui_fun(name, ...)
+  }
   sidebar_ui_fun <- purrr::possibly(match.fun, function(x){NULL})(
     paste0(module_name, '_ui_sidebar')
   )
   mod_fun <- match.fun(module_name)
-  ui <- dashboardPage(
-    dashboardHeader(title = name),
-    dashboardSidebar(
+  ui <- shinydashboard::dashboardPage(
+    shinydashboard::dashboardHeader(
+      title = name
+    ),
+    shinydashboard::dashboardSidebar(
       sidebar_ui_fun(name)
     ),
-    dashboardBody(
+    shinydashboard::dashboardBody(
       ui_fun(name, ...)
     )
   )
