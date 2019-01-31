@@ -1,12 +1,15 @@
 #' Create sidebar
 #'
 #' @param config Dashboard configuration read from _site.yml
-#' @param data_global Global data passed to the sidebar
+#' @param data_global Global data passed to the sidebar.
+#' @param display_page A function that returns a boolean indicating if a page
+#'   should be displayed in the sidebar.
 #' @export
-create_sidebar <- function(config, data_global, display_tab = function(x){TRUE}){
+st_create_sidebar <- function(config, data_global,
+    display_page = function(x){TRUE}){
   s1 <- config$sidebar %>%
     purrr::map(~ {
-      if (!display_tab(.$text)){
+      if (!display_page(.$text)){
         return(NULL)
       }
       if (length(.$menu) > 1){
