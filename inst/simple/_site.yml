@@ -1,0 +1,23 @@
+name: Main Dashboard
+sidebar:
+  - text: Finance
+    icon: briefcase
+    menu:
+      - text: Registrations
+        module: registrations
+      - text: Subscriptions
+        module: subscriptions
+
+  - text: Admin
+    icon: lock
+    menu:
+      - text: Controls
+
+  - text: Product
+    icon: product-hunt
+    menu:
+      - text: Active Users
+        tabs:
+          - text: Daily
+          - text: Weekly
+          - text: Monthly
