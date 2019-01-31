@@ -4,7 +4,7 @@
 \alias{preview_module}
 \title{Preview a shiny module in a shiny dashboard}
 \usage{
-preview_module(module_name, name = "module", ...)
+preview_module(module_name, name = "module", use_box = FALSE, ...)
 }
 \arguments{
 \item{module_name}{Name of the module}
