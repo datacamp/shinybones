@@ -29,8 +29,11 @@ get_module_ui <- function(.){
 #' @keywords internal
 #' @importFrom rlang flatten
 get_modules <- function(config){
-  config$sidebar %>%
+  b1 <- config$sidebar %>%
     purrr::map('menu') %>%
     purrr::compact() %>%
     rlang::flatten()
+  b2 <- config$sidebar %>%
+    purrr:::map(~ {.$menu <- NULL; .})
+  append(b1, b2)
 }
