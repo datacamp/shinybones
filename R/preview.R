@@ -41,7 +41,7 @@ preview_module <- function(module_name, name = 'module', use_box = FALSE, ...){
       sidebar_ui_fun(name)
     ),
     shinydashboard::dashboardBody(
-      ui_fun(name, ...)
+      my_ui
     )
   )
   server <- function(input, output, session){
