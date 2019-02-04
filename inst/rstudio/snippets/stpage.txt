@@ -1,0 +1,31 @@
+#' Page: ${1:name}
+#'
+#' This is a page module ...
+#' @param data_global Global data passed on by app.R
+#' @param ... Additional parameters passed to the module
+#' @examples
+#' satin::preview_module("${1:name}",
+#'   data_global = list()
+#'
+#' )
+#' @export
+${1:name} <- function(input, output, session, data_global, ...){
+  ns <- session$ns
+
+}
+
+
+#' @rdname ${1:name}
+${1:name}_ui <- function(id, data_global, ...){
+  ns <- NS(id)
+  fluidRow(
+    box(
+      title = ""
+    )
+  )
+}
+
+#' @rdname ${1:name}
+# ${1:name}_ui_sidebar <- function(id, data_global, ...){
+#  ns <- NS(id)
+# }
