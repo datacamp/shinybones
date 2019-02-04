@@ -33,7 +33,7 @@ preview_module <- function(module_name, name = 'module', use_box = FALSE, ...){
     paste0(module_name, '_ui_sidebar')
   )
   mod_fun <- match.fun(module_name)
-  ui <- shinydashboard::dashboardPage(
+  ui <- shinydashboard::dashboardPage(skin = 'purple',
     shinydashboard::dashboardHeader(
       title = name
     ),
