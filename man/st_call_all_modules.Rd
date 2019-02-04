@@ -5,7 +5,7 @@
 \title{Call all modules}
 \usage{
 st_call_all_modules(config, data_global, display_tab = function(x) {    
-  FALSE })
+  TRUE })
 }
 \arguments{
 \item{config}{Dashboard configuration read from _site.yml}
