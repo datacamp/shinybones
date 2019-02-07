@@ -13,9 +13,8 @@ st_create_sidebar <- function(config, data_global,
         return(NULL)
       }
       if (length(.$menu) >= 1){
-        menuItem(.$text,
-            # tabName = make_tab_name(.),
-            icon = icon(.$icon),
+          .text <- .x$text
+          .icon=   icon(.x$icon)
           .$menu %>%
              map(~ {
                if (!is.null(.$href)){
@@ -29,8 +28,9 @@ st_create_sidebar <- function(config, data_global,
                  fun_ui_sidebar <- match.fun(paste0(.$module, '_ui_sidebar'))
                  fun_ui_sidebar(tabName)
                }
-             })
-        )
+             }) %>%
+             append(list(text = .text, icon = .icon)) %>%
+             do.call(menuItem, .)
       } else {
         if (!is.null(.$href)) {
           menuItem(.$text, href = .$href, icon = icon(.$icon))
@@ -39,10 +39,12 @@ st_create_sidebar <- function(config, data_global,
         }
       }
     }) %>%
-    tagList() %>%
-    sidebarMenu(id = 'tabs')
-  s2 <- create_conditional_panels(config)
-  tagList(s1, s2)
+    append(list(id = 'smenu')) %>%
+    do.call(sidebarMenu, .)
+  # COMMENT OUT CONDITIONAL PANELS FOR NOW ---
+  # s2 <- create_conditional_panels(config)
+  # tagList(s1, s2)
+  s1
 }
 
 # Create conditional panels
