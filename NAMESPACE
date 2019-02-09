@@ -2,6 +2,7 @@
 
 export("%>%")
 export(create_satin_app)
+export(preview_component)
 export(preview_module)
 export(source_dirs)
 export(st_add_snippets)
