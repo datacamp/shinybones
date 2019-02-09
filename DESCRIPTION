@@ -1,6 +1,6 @@
 Package: satin
 Title: A highly opinionated framework for building shiny dashboards.
-Version: 0.1.2
+Version: 0.1.21
 Authors@R: 
     person(given = "Ramnath",
            family = "Vaidyanathan",
