@@ -14,6 +14,11 @@ st_create_sidebar <- function(config, data_global,
       }
       if (length(.$menu) >= 1){
           .text <- .x$text
+          .startExpanded <- if (is.null(.x$startExpanded)) {
+              FALSE
+           } else {
+             .x$startExpanded
+           }
           .icon=   icon(.x$icon)
           .$menu %>%
              map(~ {
@@ -29,7 +34,7 @@ st_create_sidebar <- function(config, data_global,
                  fun_ui_sidebar(tabName)
                }
              }) %>%
-             append(list(text = .text, icon = .icon)) %>%
+             append(list(text = .text, icon = .icon, startExpanded = .startExpanded)) %>%
              do.call(menuItem, .)
       } else {
         if (!is.null(.$href)) {
