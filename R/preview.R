@@ -51,3 +51,22 @@ preview_module <- function(module_name, name = 'module', use_box = FALSE, ...){
   }
   shiny::shinyApp(ui = ui, server = server)
 }
+
+
+#' Preview a component in a satin shinydashboard
+#' @export
+preview_component <- function (x, title = "Preview", use_box = TRUE, ...){
+  module_ui <- function(id) {
+    ns <- shiny::NS(id)
+    fluidRow(if (use_box) {
+      box(width = 12, title = title, x)
+    }
+    else {
+      x
+    })
+  }
+  module <- function(input, output, session, ...){
+
+  }
+  preview_module('module', use_box = use_box, ...)
+}
