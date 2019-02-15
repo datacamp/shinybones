@@ -30,8 +30,10 @@ make_html_id <- function(x){
 }
 
 # Default placeholder UI
-default_placeholder_ui <- function(title, text) {
-  warning(text, call. = FALSE)
+default_placeholder_ui <- function(title, text, quietly = FALSE) {
+  if (!quietly){
+    warning(text, call. = FALSE)
+  }
   function(id, ...) {
     ns <- NS(id)
     shiny::fluidRow(

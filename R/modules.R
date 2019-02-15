@@ -10,7 +10,7 @@ get_module <- function(.){
 #' 2. Module UI function cannot be found -> Placeholder UI with Message
 #' 3. Module is found
 #' @importFrom purrr safely
-get_module_ui <- function(.){
+get_module_ui <- function(., quietly = FALSE){
   if (is.null(.$module)){
     msg <- sprintf('No module for %s has been specified.', .$text)
     not_specified <- default_placeholder_ui(.$text, msg)
@@ -19,7 +19,7 @@ get_module_ui <- function(.){
     msg <- sprintf("No function named %s can be found", module_ui_name)
     f <- purrr:::safely(match.fun)(module_ui_name)
     if (is.null(f$result)){
-      return(default_placeholder_ui(.$text, msg))
+      return(default_placeholder_ui(.$text, msg, quietly = quietly))
     } else {
       return(f$result)
     }

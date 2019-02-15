@@ -7,7 +7,8 @@
 #' @export
 #' @importFrom purrr map
 #' @importFrom shiny NS tabPanel tabsetPanel
-st_create_tab_items <- function(config, data_global, display_tab = function(x){TRUE}){
+st_create_tab_items <- function(config, data_global, display_tab = function(x){TRUE}, quietly = FALSE){
+  message("Creating tab items ...")
   modules <- get_modules(config)
   modules %>%
     purrr::map(~ {
@@ -17,7 +18,7 @@ st_create_tab_items <- function(config, data_global, display_tab = function(x){T
         return(shinydashboard::tabItem(tabName, .$ui))
       }
       .fun <- if (!is.null(.$module)){
-        get_module_ui(.)
+        get_module_ui(., quietly = quietly)
       } else if (!is.null(.$tabs)) {
         module_tabs_ui(.$tabs, display_tab)
       } else {
