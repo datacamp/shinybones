@@ -10,7 +10,7 @@
 #' )
 #' @export
 ${1:name} <- function(input, output, session, data_global, ...){
-  ns <- session$ns
+  ns <- session\$ns
 
 }
 
