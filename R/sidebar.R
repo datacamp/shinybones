@@ -23,7 +23,6 @@ st_create_sidebar <- function(config, data_global,
           .$menu %>%
              map(~ {
                if (!is.null(.$href)){
-                 print("I am here...")
                  return(menuSubItem(.$text, href = .$href))
                }
                tabName = make_tab_name(.)

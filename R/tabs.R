@@ -8,7 +8,10 @@ module_tabs <- function(tabs, display_tab = function(x){TRUE}){
         if (!is.null(.$module)){
           .fun <- get_module(.)
           if (!is.null(.fun)){
-            callModule(.fun, tabName, data_global = data_global)
+
+            l <- list(.fun, tabName, data_global = data_global)
+            l <- append(l, .$module_params)
+            do.call(callModule, l)
           }
         }
         if (!display_tab(.$text)){

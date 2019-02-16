@@ -47,13 +47,9 @@ st_call_all_modules <- function(config, data_global, display_tab = function(x){T
         .fun <- module_tabs(.$tabs, display_tab)
       }
       if (!is.null(.fun)){
-        if (is.null(.$module_params)){
-          callModule(.fun, tabName, data_global = data_global)
-        } else {
-          l <- list(.fun, tabName, data_global = data_global)
-          l <- append(l, .$module_params)
-          do.call(callModule, l)
-        }
+        l <- list(.fun, tabName, data_global = data_global)
+        l <- append(l, .$module_params)
+        do.call(callModule, l)
       }
     })
 }
