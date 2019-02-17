@@ -4,7 +4,7 @@
 \alias{get_module_ui}
 \title{Get the ui function for a module}
 \usage{
-get_module_ui(.)
+get_module_ui(., quietly = FALSE)
 }
 \description{
 Get the ui function for a module

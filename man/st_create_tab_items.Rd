@@ -5,7 +5,7 @@
 \title{Create tab items}
 \usage{
 st_create_tab_items(config, data_global, display_tab = function(x) {    
-  TRUE })
+  TRUE }, quietly = FALSE)
 }
 \arguments{
 \item{config}{Dashboard configuration read from _site.yml}
