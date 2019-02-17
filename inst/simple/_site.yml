@@ -1,23 +1,19 @@
 name: Main Dashboard
 sidebar:
-  - text: Finance
-    icon: briefcase
+  - text: Dashboards
+    icon: dashboard
+
+  - text: Widgets
+    icon: th
     menu:
-      - text: Registrations
+      - text: Page
         module: registrations
-      - text: Subscriptions
+      - text: Components
         module: subscriptions
 
-  - text: Admin
-    icon: lock
-    menu:
-      - text: Controls
-
-  - text: Product
-    icon: product-hunt
-    menu:
-      - text: Active Users
-        tabs:
-          - text: Daily
-          - text: Weekly
-          - text: Monthly
+  - text: Charts
+    icon: bar-chart-o
+    tabs:
+      - text: Plot
+      - text: Data
+      - text: About
