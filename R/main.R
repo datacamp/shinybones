@@ -20,6 +20,7 @@ st_create_tab_items <- function(config, data_global, display_tab = function(x){T
       .fun <- if (!is.null(.$module)){
         get_module_ui(., quietly = quietly)
       } else if (!is.null(.$tabs)) {
+        .$tabs <- map(.$tabs, .process_module)
         module_tabs_ui(.$tabs, display_tab)
       } else {
         get_module_ui(.)
@@ -44,6 +45,7 @@ st_call_all_modules <- function(config, data_global, display_tab = function(x){T
       tabName = make_tab_name(.)
       .fun <- get_module(.)
       if (is.null(.fun) && !is.null(.$tabs)){
+        .$tabs <- map(.$tabs, .process_module)
         .fun <- module_tabs(.$tabs, display_tab)
       }
       if (!is.null(.fun)){

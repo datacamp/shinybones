@@ -33,7 +33,24 @@ get_modules <- function(config){
     purrr::map('menu') %>%
     purrr::compact() %>%
     rlang::flatten()
+  b1 <- b1 %>%
+    map(.process_module)
   b2 <- config$sidebar %>%
     purrr:::map(~ {.$menu <- NULL; .})
   append(b1, b2)
+}
+
+# Possible inputs
+# module_name
+# {module_name: {param1: v1, param2: v2}}
+# [{module_name: {param1: v1, param2: v2}}, {}]
+.process_module <- function(x){
+  if (!is.null(x$module) && is.list(x$module)){
+    module_params = x$module[[1]]
+    x$module <- names(x$module)
+    x$module_params <- module_params
+    x
+  } else {
+    x
+  }
 }
