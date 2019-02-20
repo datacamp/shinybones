@@ -1,0 +1,21 @@
+name: Main Dashboard
+sidebar:
+  - text: Dashboards
+    icon: dashboard
+    module: test_input_global
+
+  - text: Widgets
+    icon: th
+    menu:
+      - text: Page
+        module: registrations
+      - text: Components
+        module: subscriptions
+
+  - text: Charts
+    icon: bar-chart-o
+    tabs:
+      - text: Plot
+        module: test_input_global
+      - text: Data
+      - text: About
