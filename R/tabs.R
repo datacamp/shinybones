@@ -1,6 +1,6 @@
 # Generate Tab Modules
 module_tabs <- function(tabs, display_tab = function(x){TRUE}){
-  function(input, output, session, data_global, ...){
+  function(input, output, session, data_global, input_global, ...){
     ns <- session$ns
     tabs %>%
       purrr::walk(~ {
@@ -9,7 +9,9 @@ module_tabs <- function(tabs, display_tab = function(x){TRUE}){
           .fun <- get_module(.)
           if (!is.null(.fun)){
 
-            l <- list(.fun, tabName, data_global = data_global)
+            l <- list(.fun, tabName, data_global = data_global,
+               input_global = input_global
+            )
             l <- append(l, .$module_params)
             do.call(callModule, l)
           }

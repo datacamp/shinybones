@@ -36,9 +36,13 @@ st_create_tab_items <- function(config, data_global, display_tab = function(x){T
 #' Call all modules
 #'
 #' @param config Dashboard configuration read from _site.yml
-#' @param data_global Global data passed to the sidebar
+#' @param data_global Global data passed to the module
+#' @param input_global Global input passed to the module
+#' @param display_tab A function that returns a boolean indicating if a tab is
+#'   to be displayed or not.
 #' @export
-st_call_all_modules <- function(config, data_global, display_tab = function(x){TRUE}){
+st_call_all_modules <- function(config, data_global, input_global,
+    display_tab = function(x){TRUE}){
   modules <- get_modules(config)
   modules %>%
     walk(~ {
@@ -49,7 +53,9 @@ st_call_all_modules <- function(config, data_global, display_tab = function(x){T
         .fun <- module_tabs(.$tabs, display_tab)
       }
       if (!is.null(.fun)){
-        l <- list(.fun, tabName, data_global = data_global)
+        l <- list(.fun, tabName, data_global = data_global,
+          input_global = input_global
+        )
         l <- append(l, .$module_params)
         do.call(callModule, l)
       }
