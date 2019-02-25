@@ -22,6 +22,9 @@ st_create_sidebar <- function(config, data_global,
           .icon=   icon(.x$icon)
           .$menu %>%
              map(~ {
+               if (!display_page(.$text)) {
+                 return(NULL)
+               }
                if (!is.null(.$href)){
                  return(menuSubItem(.$text, href = .$href))
                }
