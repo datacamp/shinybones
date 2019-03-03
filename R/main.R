@@ -41,7 +41,7 @@ st_create_tab_items <- function(config, data_global, display_tab = function(x){T
 #' @param display_tab A function that returns a boolean indicating if a tab is
 #'   to be displayed or not.
 #' @export
-st_call_all_modules <- function(config, data_global, input_global,
+st_call_all_modules <- function(config, data_global, input_global = list(),
     display_tab = function(x){TRUE}){
   modules <- get_modules(config)
   modules %>%
