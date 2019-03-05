@@ -1,6 +1,7 @@
 Binding: create_satin_app
-Title: Create a Satin shinydashboard app!
+Title: Scaffold a shinydashboard app!
 OpenFiles: app.R, _site.yml
+Icon: shinybones.png
 
 Parameter: scaffold_type
 Widget: SelectInput
