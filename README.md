@@ -1,4 +1,4 @@
-# ShinyBones <img src="https://i.imgur.com/muVrwAD.png" width="120px" align="right" />
+# ShinyBones <img src="inst/rstudio/templates/project/shinybones.png" width="120px" align="right" />
 
  [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
