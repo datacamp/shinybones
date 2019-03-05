@@ -1,4 +1,4 @@
-Package: satin
+Package: shinybones
 Title: A highly opinionated framework for building shiny dashboards.
 Version: 0.1.22
 Authors@R: 

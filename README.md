@@ -1,4 +1,4 @@
-# Satin
+# ShinyBones <img src="https://i.imgur.com/muVrwAD.png" width="120px" align="right" />
 
 __NOTE: This package is under heavy development and the APIs are expected to change. So proceed with extreme caution!__
 
