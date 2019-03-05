@@ -10,7 +10,7 @@ __shinybones__ is an R package (thanks @dgrtwo for the name!) that provides a hi
 
 ## Installation
 
-You can install `satin` from github:
+You can install `shinybones` from github:
 
 ```r
 remotes::install_github('ramnathv/shinybones')
