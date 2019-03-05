@@ -26,7 +26,7 @@ shinybones::st_add_snippets()
 
 You can easily scaffold a shinydashboard app using `shinybones` by clicking on the `New Project` menu in `RStudio`
 
-![satin-new-project](https://i.imgur.com/Cs9Tzxk.png)
+![satin-new-project](https://imgur.com/eE7rbBB.png)
 
 ## Conventions
 
