@@ -4,7 +4,7 @@
 
 __NOTE: This package is under heavy development and the APIs are expected to change. So proceed with extreme caution!__
 
-__Satin__ is an R package that provides a highly opinionated way to organize large, multi-page shiny apps. It allows users to focus on building independent modules for each page following a minimal set of conventions, and relegating all the boilerplate code involding in laying them out in the dashboard to a simple YAML configuration file.
+__shinybones__ is an R package (thanks @dgrtwo for the name!) that provides a highly opinionated way to organize large, multi-page shiny apps. It allows users to focus on building independent modules for each page following a minimal set of conventions, and relegating all the boilerplate code involding in laying them out in the dashboard to a simple YAML configuration file.
 
 ![dashboard](https://i.imgur.com/egYB6tW.png)
 
@@ -13,18 +13,18 @@ __Satin__ is an R package that provides a highly opinionated way to organize lar
 You can install `satin` from github:
 
 ```r
-remotes::install_github('ramnathv/satin')
+remotes::install_github('ramnathv/shinybones')
 ```
 
-Satin ships with two useful snippets `stpage` and `stcomponent` that lets you create `page` and `component` modules that follow the conventions. You can install it by running `st_add_snippets`. Note that you will need to restart RStudio for the snippets to be usable.
+`shinybones` ships with two useful snippets `stpage` and `stcomponent` that lets you create `page` and `component` modules that follow the conventions. You can install it by running `st_add_snippets`. Note that you will need to restart RStudio for the snippets to be usable.
 
 ```r
-satin::st_add_snippets()
+shinybones::st_add_snippets()
 ```
 
 ## Usage
 
-You can easily scaffold a `satin` dashboard app using the `New Project` menu in `RStudio`
+You can easily scaffold a shinydashboard app using `shinybones` by clicking on the `New Project` menu in `RStudio`
 
 ![satin-new-project](https://i.imgur.com/Cs9Tzxk.png)
 
