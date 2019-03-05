@@ -1,5 +1,7 @@
 # ShinyBones <img src="https://i.imgur.com/muVrwAD.png" width="120px" align="right" />
 
+ [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+
 __NOTE: This package is under heavy development and the APIs are expected to change. So proceed with extreme caution!__
 
 __Satin__ is an R package that provides a highly opinionated way to organize large, multi-page shiny apps. It allows users to focus on building independent modules for each page following a minimal set of conventions, and relegating all the boilerplate code involding in laying them out in the dashboard to a simple YAML configuration file.
