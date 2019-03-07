@@ -17,10 +17,20 @@
 #' slider_text <- function(input, output, session){
 #'    output$num_text <- renderText({input$num})
 #' }
-#' preview_module('slider_text')
-preview_module <- function(module_name, name = module_name, use_box = FALSE,
+#' preview_module(slider_text)
+#' preview_module("slider_text")
+preview_module <- function(module, name = 'module', use_box = FALSE,
     preview = TRUE, ...){
-  ui_fun <- match.fun(paste(module_name, 'ui', sep = "_"))
+  if (is.character(module)){
+    name <- module
+    module_name <- module
+    module <- match.fun(name)
+  } else {
+    module_name <- deparse(substitute(module))
+  }
+  ui_name <- paste(module_name, 'ui', sep = "_")
+  ui_fun <- get(ui_name, mode = "function", envir = environment(module))
+  # ui_fun <- match.fun(paste(module_name, 'ui', sep = "_"))
   my_ui <- if (use_box){
     shiny::fluidRow(
       shinydashboard::box(width = 12,
