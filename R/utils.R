@@ -58,12 +58,12 @@ placeholder_ui <-  function(id, title){
 }
 
 
-#' Create a Rstudio Project bootstraping a Satin Shiny App
+#' Create an Rstudio Project bootstraping a shinybones dashboard.
 #'
 #' @param path path to create
 #' @param ... not used
 #' @export
-create_satin_app <- function(path, ...) {
+sb_create_project <- function(path, ...) {
   params <- list(...)
   dir.create(path = path, showWarnings = FALSE, recursive = TRUE)
   from <- system.file(params$scaffold_type, package = "shinybones")
