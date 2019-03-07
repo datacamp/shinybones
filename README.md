@@ -1,4 +1,4 @@
-# ShinyBones <img src="inst/rstudio/templates/project/shinybones.png" width="120px" align="right" />
+# ShinyBones <img src="man/figures/shinybones.png" width="120px" align="right" />
 
  [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
@@ -6,7 +6,7 @@ __NOTE: This package is under heavy development and the APIs are expected to cha
 
 __shinybones__ is an R package (thanks @dgrtwo for the name!) that provides a highly opinionated way to organize large, multi-page shiny apps. It allows users to focus on building independent modules for each page following a minimal set of conventions, and relegating all the boilerplate code involding in laying them out in the dashboard to a simple YAML configuration file.
 
-![dashboard](https://i.imgur.com/egYB6tW.png)
+<img src="man/figures/shinybones-illustration.svg" class = "center" />
 
 ## Installation
 
@@ -88,3 +88,11 @@ sidebar:
 - [x] Allow factory modules that can accept static parameters
 - [ ] Fix bugs where when menu item has only one child, tabNames have to be same.
 - [ ] Allow deep linking at the tab level (by default)
+
+<style>
+img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
