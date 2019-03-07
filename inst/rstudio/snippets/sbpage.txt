@@ -4,12 +4,13 @@
 #' @param data_global Global data passed on by app.R
 #' @param ... Additional parameters passed to the module
 #' @examples
-#' satin::preview_module("${1:name}",
+#' shinybones::preview_module("${1:name}",
 #'   data_global = list()
 #'
 #' )
 #' @export
-${1:name} <- function(input, output, session, data_global, ...){
+${1:name} <- function(input, output, session, data_global = list(),
+    input_global = list(), ...){
   ns <- session\$ns
 
 }
