@@ -70,3 +70,22 @@ sb_create_project <- function(path, ...) {
   ll <- list.files(path = from, full.names = TRUE)
   file.copy(from = ll, to = path, overwrite = TRUE, recursive = TRUE)
 }
+
+#' Add a test for a shiny module
+#'
+#'
+#' @export
+sb_add_test <- function(module_name){
+  tpl <- system.file('templates', 'test_module.R', package = 'shinybones')
+  if (!dir.exists('tests')){
+    stop("Please run usethis::use_testthat() to bootstrap tests", call. = FALSE)
+  }
+  test_dir <- file.path('tests', 'testthat', 'apps', module_name)
+  if (!dir.exists(test_dir)){
+    dir.create(test_dir, recursive = TRUE)
+  }
+  readLines(tpl, warn = FALSE) %>%
+    paste(collapse = "\n") %>%
+    glue::glue() %>%
+    cat(file = file.path(test_dir, 'app.R'))
+}
