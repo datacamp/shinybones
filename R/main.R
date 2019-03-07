@@ -2,11 +2,11 @@
 #'
 #' @param config Dashboard configuration read from _site.yml
 #' @param data_global Global data passed automatically from app.R
-#' @param display_tab A function that returns a boolean indicating whether a tab is
-#'   to be displayed in the UI
-#' @export
+#' @param display_tab A function that returns a boolean indicating whether a tab
+#'   is to be displayed in the UI
 #' @importFrom purrr map
 #' @importFrom shiny NS tabPanel tabsetPanel
+#' @export
 sb_create_tab_items <- function(config, data_global, display_tab = function(x){TRUE}, quietly = FALSE){
   message("Creating tab items ...")
   modules <- get_modules(config)
@@ -38,7 +38,7 @@ sb_create_tab_items <- function(config, data_global, display_tab = function(x){T
 #' @param config Dashboard configuration read from _site.yml
 #' @param data_global Global data passed to the sidebar
 #' @export
-sb_call_all_modules <- function(config, data_global, display_tab = function(x){TRUE}){
+sb_call_modules <- function(config, data_global, display_tab = function(x){TRUE}){
   modules <- get_modules(config)
   modules %>%
     walk(~ {
@@ -56,4 +56,11 @@ sb_call_all_modules <- function(config, data_global, display_tab = function(x){T
     })
 }
 
+#' @export
+#' @rdname sb_call_modules
+sb_call_all_modules <- function(config, data_global,
+  display_tab = function(x){TRUE}){
+  .Deprecated("sb_call_modules")
+  sb_call_modules(config, data_global, display_tab)
+}
 
