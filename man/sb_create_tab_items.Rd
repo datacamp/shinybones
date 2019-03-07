@@ -12,8 +12,8 @@ sb_create_tab_items(config, data_global, display_tab = function(x) {
 
 \item{data_global}{Global data passed automatically from app.R}
 
-\item{display_tab}{A function that returns a boolean indicating whether a tab is
-to be displayed in the UI}
+\item{display_tab}{A function that returns a boolean indicating whether a tab
+is to be displayed in the UI}
 }
 \description{
 Create tab items
