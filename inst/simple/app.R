@@ -1,7 +1,7 @@
 # Load Libraries -----
 library(shiny)
 library(shinydashboard)
-library(satin)
+library(shinybones)
 
 # Load Utilities -----
 source_dirs('components')
@@ -24,19 +24,19 @@ ui <- function(request){
 
     # Sidebar ----
     dashboardSidebar(
-      st_create_sidebar(CONFIG, DATA)
+      sb_create_sidebar(CONFIG, DATA)
     ),
 
     # Body -----
     dashboardBody(
-      st_create_tab_items(CONFIG, DATA)
+      sb_create_tab_items(CONFIG, DATA)
     )
   )
 }
 
 # Server -----
 server <- function(input, output, session){
-  st_call_all_modules(CONFIG, DATA)
+  sb_call_all_modules(CONFIG, DATA)
 }
 
 # Run App ----
