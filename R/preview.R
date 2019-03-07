@@ -1,4 +1,4 @@
-#' Preview a shiny module in a shiny dashboard
+#' Preview a shiny module or a UI component in a shinydashboard
 #'
 #' @param module_name Name of the module
 #' @param name Namespace to call the module
@@ -18,11 +18,12 @@
 #'    output$num_text <- renderText({input$num})
 #' }
 #' preview_module('slider_text')
-preview_module <- function(module_name, name = 'module', use_box = FALSE, ...){
+preview_module <- function(module_name, name = module_name, use_box = FALSE,
+    preview = TRUE, ...){
   ui_fun <- match.fun(paste(module_name, 'ui', sep = "_"))
   my_ui <- if (use_box){
     shiny::fluidRow(
-      shinydashboard::box(
+      shinydashboard::box(width = 12,
         ui_fun(name, ...)
       )
     )
@@ -49,21 +50,20 @@ preview_module <- function(module_name, name = 'module', use_box = FALSE, ...){
       mod_fun, name, ...
     )
   }
-  shiny::shinyApp(ui = ui, server = server)
+  if (!preview){
+    list(ui = ui, server = server)
+  } else {
+    shiny::shinyApp(ui = ui, server = server)
+  }
+
 }
 
 
-#' Preview a component in a satin shinydashboard
 #' @export
+#' @rdname preview_module
 preview_component <- function (x, title = "Preview", use_box = TRUE, ...){
   module_ui <- function(id) {
-    ns <- shiny::NS(id)
-    fluidRow(if (use_box) {
-      box(width = 12, title = title, x)
-    }
-    else {
-      x
-    })
+   x
   }
   module <- function(input, output, session, ...){
 
