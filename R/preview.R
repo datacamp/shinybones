@@ -17,9 +17,10 @@
 #' slider_text <- function(input, output, session){
 #'    output$num_text <- renderText({input$num})
 #' }
-#' preview_module(slider_text)
+#' preview_module(slider_text, title = 'Slider Text')
 #' preview_module("slider_text")
 preview_module <- function(module, name = 'module', use_box = FALSE,
+    title = name,
     preview = TRUE, ...){
   if (is.character(module)){
     name <- module
@@ -46,7 +47,7 @@ preview_module <- function(module, name = 'module', use_box = FALSE,
   mod_fun <- match.fun(module_name)
   ui <- shinydashboard::dashboardPage(skin = 'purple',
     shinydashboard::dashboardHeader(
-      title = name
+      title = title
     ),
     shinydashboard::dashboardSidebar(
       sidebar_ui_fun(name)
