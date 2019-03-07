@@ -2,9 +2,8 @@
 
  [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
-__NOTE: This package is under heavy development and the APIs are expected to change. So proceed with extreme caution!__
 
-__shinybones__ is an R package (thanks @dgrtwo for the name!) that provides a highly opinionated way to organize large, multi-page shiny apps. It allows users to focus on building independent modules for each page following a minimal set of conventions, and relegating all the boilerplate code involding in laying them out in the dashboard to a simple YAML configuration file.
+__shinybones__ is an R package :skull_and_crossbones: that provides a highly opinionated way to organize large, multi-page shiny apps. It allows users to focus on building independent modules for each page following a minimal set of conventions, and relegating all the boilerplate code involding in laying them out in the dashboard to a simple YAML configuration file.
 
 <img src="man/figures/shinybones-illustration.svg" class = "center" />
 
@@ -80,7 +79,7 @@ sidebar:
 3. Add it to the dashboard by editing `_site.yml`.
 
 
-## TODO
+## ToDos
 
 - [x] Hook up passing of data to each module
 - [x] Wrap all utilities into a package
@@ -88,6 +87,10 @@ sidebar:
 - [x] Allow factory modules that can accept static parameters
 - [ ] Fix bugs where when menu item has only one child, tabNames have to be same.
 - [ ] Allow deep linking at the tab level (by default)
+
+## Acknowledgements
+
+This package was initially named `satin`, but had to be renamed since it was already in use by a now-archived package on CRAN. Thanks to @dgrtwo for suggesting the name `shinybones`, which is very appropriate since this package allows you to create a skeleton of a dashboard app!
 
 <style>
 img.center {
