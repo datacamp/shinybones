@@ -1,4 +1,4 @@
-Binding: create_satin_app
+Binding: sb_create_project
 Title: Scaffold a shinydashboard app using shinybones
 OpenFiles: app.R, _site.yml
 Icon: shinybones.png
