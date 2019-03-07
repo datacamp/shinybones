@@ -65,9 +65,8 @@ placeholder_ui <-  function(id, title){
 #' @export
 create_satin_app <- function(path, ...) {
   params <- list(...)
-  dir.create(path, recursive = TRUE, showWarnings = FALSE)
-  dir.create(path = path)
-  from <- system.file(params$scaffold_type, package = "satin")
-  ll <- list.files(path = from, full.names = TRUE, all.files = TRUE)
+  dir.create(path = path, showWarnings = FALSE, recursive = TRUE)
+  from <- system.file(params$scaffold_type, package = "shinybones")
+  ll <- list.files(path = from, full.names = TRUE)
   file.copy(from = ll, to = path, overwrite = TRUE, recursive = TRUE)
 }
