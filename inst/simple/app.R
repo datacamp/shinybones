@@ -36,7 +36,7 @@ ui <- function(request){
 
 # Server -----
 server <- function(input, output, session){
-  sb_call_all_modules(CONFIG, DATA)
+  sb_call_modules(CONFIG, DATA)
 }
 
 # Run App ----
