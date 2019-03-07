@@ -5,17 +5,17 @@
 \alias{preview_component}
 \title{Preview a shiny module or a UI component in a shinydashboard}
 \usage{
-preview_module(module_name, name = module_name, use_box = FALSE,
+preview_module(module, name = "module", use_box = FALSE,
   preview = TRUE, ...)
 
 preview_component(x, title = "Preview", use_box = TRUE, ...)
 }
 \arguments{
-\item{module_name}{Name of the module}
-
 \item{name}{Namespace to call the module}
 
 \item{...}{Additional parameters to pass to the module}
+
+\item{module_name}{Name of the module}
 }
 \description{
 Preview a shiny module or a UI component in a shinydashboard
@@ -31,5 +31,6 @@ slider_text_ui <- function(id){
 slider_text <- function(input, output, session){
    output$num_text <- renderText({input$num})
 }
-preview_module('slider_text')
+preview_module(slider_text)
+preview_module("slider_text")
 }
