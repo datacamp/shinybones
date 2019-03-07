@@ -2,9 +2,13 @@
 % Please edit documentation in R/preview.R
 \name{preview_module}
 \alias{preview_module}
-\title{Preview a shiny module in a shiny dashboard}
+\alias{preview_component}
+\title{Preview a shiny module or a UI component in a shinydashboard}
 \usage{
-preview_module(module_name, name = "module", use_box = FALSE, ...)
+preview_module(module_name, name = module_name, use_box = FALSE,
+  preview = TRUE, ...)
+
+preview_component(x, title = "Preview", use_box = TRUE, ...)
 }
 \arguments{
 \item{module_name}{Name of the module}
@@ -14,7 +18,7 @@ preview_module(module_name, name = "module", use_box = FALSE, ...)
 \item{...}{Additional parameters to pass to the module}
 }
 \description{
-Preview a shiny module in a shiny dashboard
+Preview a shiny module or a UI component in a shinydashboard
 }
 \examples{
 slider_text_ui <- function(id){

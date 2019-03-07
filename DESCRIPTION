@@ -10,8 +10,8 @@ Description: A highly opinionated framework for building shiny dashboards
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/ramnathv/satin
-BugReports: https://github.com/ramnathv/satin/issues
+URL: https://github.com/ramnathv/shinybones
+BugReports: https://github.com/ramnathv/shinybones/issues
 RoxygenNote: 6.1.1
 Imports: 
     shiny,
