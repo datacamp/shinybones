@@ -5,7 +5,7 @@
 #' @param display_page A function that returns a boolean indicating if a page
 #'   should be displayed in the sidebar.
 #' @export
-st_create_sidebar <- function(config, data_global,
+sb_create_sidebar <- function(config, data_global,
     display_page = function(x){TRUE}){
   s1 <- config$sidebar %>%
     purrr::map(~ {

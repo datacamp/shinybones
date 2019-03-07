@@ -6,7 +6,7 @@
 #' \dontrun{
 #'   add_snippets()
 #' }
-st_add_snippets <- function(){
+sb_add_snippets <- function(){
   # prevent snippets from being installed multiple times
   r_snippets <- readLines("~/.R/snippets/r.snippets", warn = FALSE)
   if (any(grepl("snippet stpage", r_snippets))){
@@ -33,14 +33,14 @@ st_add_snippets <- function(){
 
 make_snippets <- function(){
   snippets <- dir(
-    system.file('rstudio', 'snippets', package = 'satin'),
+    system.file('rstudio', 'snippets', package = 'shinybones'),
     pattern = '.txt', full.names = TRUE
   )
   snippets %>%
     purrr::map_chr(~ {
       sn_name <- paste('\nsnippet', tools::file_path_sans_ext(basename(.)))
-      sn_code <- paste("\t", readLines(., warn = FALSE))
-      paste(c(sn_name, sn_code), collapse = "\n")
+      sn_code <- paste0("\t", readLines(., warn = FALSE))
+      paste0(c(sn_name, sn_code), collapse = "\n")
     }) %>%
     paste(collapse = "\n")
 }

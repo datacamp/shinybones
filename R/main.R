@@ -7,7 +7,7 @@
 #' @export
 #' @importFrom purrr map
 #' @importFrom shiny NS tabPanel tabsetPanel
-st_create_tab_items <- function(config, data_global, display_tab = function(x){TRUE}, quietly = FALSE){
+sb_create_tab_items <- function(config, data_global, display_tab = function(x){TRUE}, quietly = FALSE){
   message("Creating tab items ...")
   modules <- get_modules(config)
   modules %>%
@@ -38,7 +38,7 @@ st_create_tab_items <- function(config, data_global, display_tab = function(x){T
 #' @param config Dashboard configuration read from _site.yml
 #' @param data_global Global data passed to the sidebar
 #' @export
-st_call_all_modules <- function(config, data_global, display_tab = function(x){TRUE}){
+sb_call_all_modules <- function(config, data_global, display_tab = function(x){TRUE}){
   modules <- get_modules(config)
   modules %>%
     walk(~ {
