@@ -72,6 +72,9 @@ preview_module <- function(module, name = 'module', use_box = FALSE,
 
 #' @export
 #' @rdname preview_module
+#' @examples
+#' ui <- dcdash::dc_datatable(mtcars)
+#' preview_component(ui)
 preview_component <- function (x, title = "Preview", use_box = TRUE, ...){
   module_ui <- function(id) {
    x
