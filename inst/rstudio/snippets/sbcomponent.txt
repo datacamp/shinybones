@@ -8,7 +8,7 @@
 #' )
 #' @export
 ${1:name} <- function(input, output, session, ...){
-  ns <- session$ns
+  ns <- session\$ns
 
 }
 
