@@ -4,8 +4,10 @@
 #'
 #' @examples
 #' \dontrun{
-#'   add_snippets()
+#'   sb_add_snippets()
 #' }
+#' @importFrom purrr map map_chr
+#' @importFrom rlang set_names
 sb_add_snippets <- function(sn_file = "~/.R/snippets/r.snippets"){
   r_snippets <- read_snippets(sn_file)
   # Inspired from package:shinysnippets
@@ -28,6 +30,7 @@ sb_add_snippets <- function(sn_file = "~/.R/snippets/r.snippets"){
   }
 }
 
+# Make snippets
 make_snippets <- function(){
   snippets <- dir(
     system.file('rstudio', 'snippets', package = 'shinybones'),

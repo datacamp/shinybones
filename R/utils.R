@@ -75,6 +75,7 @@ sb_create_project <- function(path, ...) {
 #'
 #'
 #' @export
+#' @importFrom glue glue
 sb_add_test <- function(module_name){
   tpl <- system.file('templates', 'test_module.R', package = 'shinybones')
   if (!dir.exists('tests')){

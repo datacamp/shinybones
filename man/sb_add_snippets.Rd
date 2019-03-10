@@ -4,13 +4,13 @@
 \alias{sb_add_snippets}
 \title{Add snippets to your ~/.R/snippets/r.snippets}
 \usage{
-sb_add_snippets()
+sb_add_snippets(sn_file = "~/.R/snippets/r.snippets")
 }
 \description{
 Add snippets to your ~/.R/snippets/r.snippets
 }
 \examples{
 \dontrun{
-  add_snippets()
+  sb_add_snippets()
 }
 }
