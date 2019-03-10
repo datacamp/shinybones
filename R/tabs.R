@@ -1,4 +1,5 @@
 # Generate Tab Modules
+# This is worth exporting
 module_tabs <- function(tabs, display_tab = function(x){TRUE}){
   function(input, output, session, data_global, ...){
     ns <- session$ns
@@ -21,7 +22,7 @@ module_tabs <- function(tabs, display_tab = function(x){TRUE}){
   }
 }
 
-module_tabs_ui <- function(tabs, display_tab){
+module_tabs_ui <- function(tabs, display_tab = function(x){TRUE}){
   function(id, data_global){
     ns <- shiny::NS(id)
     tabs %>%
