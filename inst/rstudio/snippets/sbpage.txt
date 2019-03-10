@@ -1,14 +1,17 @@
 #' Page: ${1:name}
 #'
 #' This is a page module ...
+#' @param input The input object
+#' @param output The output object
+#' @param session The session object
 #' @param data_global Global data passed on by app.R
-#' @param ... Additional parameters passed to the module
+#' @param input_global Global input passed on by app.R
+#' @param ... Any additional parameters passed to the module
 #' @examples
-#' shinybones::preview_module("${1:name}",
-#'   data_global = list()
-#'
-#' )
+#' shinybones::preview_module(${1:name})
 #' @export
+#' @importFrom shiny NS fluidRow
+#' @importFrom shinydashboard box
 ${1:name} <- function(input, output, session, data_global = list(),
     input_global = list(), ...){
   ns <- session\$ns
@@ -18,9 +21,9 @@ ${1:name} <- function(input, output, session, data_global = list(),
 
 #' @rdname ${1:name}
 ${1:name}_ui <- function(id, data_global, ...){
-  ns <- NS(id)
-  fluidRow(
-    box(
+  ns <- shiny::NS(id)
+  shiny::fluidRow(
+    shinydashboard::box(
       title = ""
     )
   )
@@ -28,5 +31,5 @@ ${1:name}_ui <- function(id, data_global, ...){
 
 #' @rdname ${1:name}
 # ${1:name}_ui_sidebar <- function(id, data_global, ...){
-#  ns <- NS(id)
+#  ns <- shiny::NS(id)
 # }
