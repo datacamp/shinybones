@@ -48,10 +48,9 @@ sb_create_sidebar <- function(config, data_global,
     }) %>%
     append(list(id = 'smenu')) %>%
     do.call(sidebarMenu, .)
-  # COMMENT OUT CONDITIONAL PANELS FOR NOW ---
-  # s2 <- create_conditional_panels(config)
-  # tagList(s1, s2)
-  s1
+  # UNCOMMENT OUT CONDITIONAL PANELS FOR NOW ---
+  s2 <- create_conditional_panels(config)
+  tagList(s1, s2)
 }
 
 # Create conditional panels
