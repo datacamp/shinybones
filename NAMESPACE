@@ -3,6 +3,7 @@
 export("%>%")
 export(preview_component)
 export(preview_module)
+export(sb_add_page)
 export(sb_add_snippets)
 export(sb_add_test)
 export(sb_call_all_modules)

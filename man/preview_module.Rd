@@ -6,7 +6,7 @@
 \title{Preview a shiny module or a UI component in a shinydashboard}
 \usage{
 preview_module(module, name = "module", use_box = FALSE,
-  preview = TRUE, ...)
+  title = name, preview = TRUE, ...)
 
 preview_component(x, title = "Preview", use_box = TRUE, ...)
 }
@@ -31,6 +31,8 @@ slider_text_ui <- function(id){
 slider_text <- function(input, output, session){
    output$num_text <- renderText({input$num})
 }
-preview_module(slider_text)
+preview_module(slider_text, title = 'Slider Text')
 preview_module("slider_text")
+ui <- dcdash::dc_datatable(mtcars)
+preview_component(ui)
 }
