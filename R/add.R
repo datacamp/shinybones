@@ -3,7 +3,7 @@
 #' @export
 sb_add_page <- function(module, text = module_name, ...){
   snippet_page <- system.file(
-    'rstudio', 'snippets', 'sbcomponent.txt', package = 'shinybones'
+    'rstudio', 'snippets', 'sbpage.txt', package = 'shinybones'
   )
   f <- file.path('pages', paste0(module, '.R'))
   snippet_page %>%
