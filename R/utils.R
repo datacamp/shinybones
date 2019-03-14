@@ -58,35 +58,21 @@ placeholder_ui <-  function(id, title){
 }
 
 
-#' Create an Rstudio Project bootstraping a shinybones dashboard.
-#'
-#' @param path path to create
-#' @param ... not used
-#' @export
-sb_create_project <- function(path, ...) {
-  params <- list(...)
-  dir.create(path = path, showWarnings = FALSE, recursive = TRUE)
-  from <- system.file(params$scaffold_type, package = "shinybones")
-  ll <- list.files(path = from, full.names = TRUE)
-  file.copy(from = ll, to = path, overwrite = TRUE, recursive = TRUE)
+# Utility Functions: Copied over from usethis
+done <- function(..., .envir = parent.frame()) {
+  out <- glue::glue(..., .envir = .envir)
+  cat_line(bulletize(out, bullet = done_bullet()))
 }
 
-#' Add a test for a shiny module
-#'
-#'
-#' @export
-#' @importFrom glue glue
-sb_add_test <- function(module_name){
-  tpl <- system.file('templates', 'test_module.R', package = 'shinybones')
-  if (!dir.exists('tests')){
-    stop("Please run usethis::use_testthat() to bootstrap tests", call. = FALSE)
-  }
-  test_dir <- file.path('tests', 'testthat', 'apps', module_name)
-  if (!dir.exists(test_dir)){
-    dir.create(test_dir, recursive = TRUE)
-  }
-  readLines(tpl, warn = FALSE) %>%
-    paste(collapse = "\n") %>%
-    glue::glue() %>%
-    cat(file = file.path(test_dir, 'app.R'))
+
+done_bullet <- function() {
+  crayon::green(clisymbols::symbol$tick)
+}
+
+bulletize <- function(line, bullet = "*") {
+  paste0(bullet, " ", line)
+}
+
+cat_line <- function(...) {
+  cat(..., "\n", sep = "")
 }
