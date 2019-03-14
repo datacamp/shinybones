@@ -18,4 +18,5 @@ Imports:
     shinydashboard,
     purrr,
     rlang,
-    magrittr
+    magrittr,
+    crayon

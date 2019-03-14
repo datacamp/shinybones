@@ -4,7 +4,8 @@
 \alias{sb_add_page}
 \title{Add a page module}
 \usage{
-sb_add_page(module, text = module_name, ...)
+sb_add_page(module, text = module,
+  dir_pages = getOption("SB_DIR_PAGES", "pages"), ...)
 }
 \description{
 Add a page module
