@@ -11,7 +11,7 @@
 #' @importFrom shiny NS fluidRow
 #' @importFrom shinydashboard box
 ${1:name} <- function(input, output, session, ...){
-  ns <- shiny::session\$ns
+  ns <- session\$ns
 
 }
 
