@@ -3,6 +3,7 @@
 #' @export
 #' @importFrom purrr walk
 #' @importFrom htmltools span
+#' @importFrom clisymbols symbol
 source_dirs <- function(..., recursive = FALSE){
   list(...) %>%
     purrr::walk(~ {
@@ -62,6 +63,15 @@ placeholder_ui <-  function(id, title){
 done <- function(..., .envir = parent.frame()) {
   out <- glue::glue(..., .envir = .envir)
   cat_line(bulletize(out, bullet = done_bullet()))
+}
+
+todo <- function (..., .envir = parent.frame()){
+  out <- glue(..., .envir = .envir)
+  cat_line(bulletize(out, bullet = todo_bullet()))
+}
+
+todo_bullet <- function(){
+  crayon::red(clisymbols::symbol$bullet)
 }
 
 
