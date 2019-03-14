@@ -1,0 +1,10 @@
+Name: Add Page
+Description: Add a page module
+Binding: sb_add_page
+Interactive: false
+
+
+Name: Add Component
+Description: Add a component
+Binding: sb_add_component
+Interactive: false
