@@ -49,12 +49,18 @@ sb_create_sidebar <- function(config, data_global,
     append(list(id = 'smenu')) %>%
     do.call(sidebarMenu, .)
   # UNCOMMENT OUT CONDITIONAL PANELS FOR NOW ---
-  s2 <- create_conditional_panels(config)
+  s2 <- sb_create_sidebar_conditional_panels(
+    config, data_global = data_global
+  )
   tagList(s1, s2)
 }
 
-# Create conditional panels
-create_conditional_panels <- function(config){
+#' Create conditional panels
+#'
+#'
+#' @export
+sb_create_sidebar_conditional_panels <- function(config,
+    data_global = list()){
   modules <- get_modules(config)
   modules %>%
     purrr::map(~ {
@@ -65,8 +71,11 @@ create_conditional_panels <- function(config){
         )
         if (!is.null(.fun)){
           conditionalPanel(
-            sprintf("input.smenu == '%s'", tabName),
-            .fun(tabName)
+            sprintf(
+              "input.smenu == '%s'",
+               tabName
+            ),
+            .fun(tabName, data_global = data_global)
           )
         }
       }
