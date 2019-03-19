@@ -20,7 +20,7 @@
 #' preview_module(slider_text, title = 'Slider Text')
 #' preview_module("slider_text")
 preview_module <- function(module, name = 'module', use_box = FALSE,
-    title = name,
+    title = name, titleWidth = NULL,
     preview = TRUE, ...){
   if (is.character(module)){
     name <- module
@@ -31,6 +31,9 @@ preview_module <- function(module, name = 'module', use_box = FALSE,
   }
   ui_name <- paste(module_name, 'ui', sep = "_")
   ui_fun <- get(ui_name, mode = "function", envir = environment(module))
+  sidebar_ui_fun <- purrr::possibly(match.fun, function(x, ...){NULL})(
+    paste0(module_name, '_ui_sidebar')
+  )
   # ui_fun <- match.fun(paste(module_name, 'ui', sep = "_"))
   my_ui <- if (use_box){
     shiny::fluidRow(
@@ -41,16 +44,15 @@ preview_module <- function(module, name = 'module', use_box = FALSE,
   } else {
     ui_fun(name, ...)
   }
-  sidebar_ui_fun <- purrr::possibly(match.fun, function(x){NULL})(
-    paste0(module_name, '_ui_sidebar')
-  )
   mod_fun <- match.fun(module_name)
   ui <- shinydashboard::dashboardPage(skin = 'purple',
     shinydashboard::dashboardHeader(
-      title = title
+      title = title,
+      titleWidth = titleWidth
     ),
     shinydashboard::dashboardSidebar(
-      sidebar_ui_fun(name)
+      width = titleWidth,
+      sidebar_ui_fun(name, ...)
     ),
     shinydashboard::dashboardBody(
       my_ui
