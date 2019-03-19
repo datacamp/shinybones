@@ -5,7 +5,8 @@
 \title{Add a page module}
 \usage{
 sb_add_page(module, text = module,
-  dir_pages = getOption("SB_DIR_PAGES", "pages"), ...)
+  dir_pages = getOption("SB_DIR_PAGES", "pages"), add_to_yaml = FALSE,
+  ...)
 }
 \description{
 Add a page module

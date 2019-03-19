@@ -6,7 +6,7 @@
 \title{Preview a shiny module or a UI component in a shinydashboard}
 \usage{
 preview_module(module, name = "module", use_box = FALSE,
-  title = name, preview = TRUE, ...)
+  title = name, titleWidth = NULL, preview = TRUE, ...)
 
 preview_component(x, title = "Preview", use_box = TRUE, ...)
 }

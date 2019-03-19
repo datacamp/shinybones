@@ -7,5 +7,5 @@
 sb_add_test(module_name)
 }
 \description{
-Add a test for a shiny module
+TODO: Automatically add a test file as testthat/test-shiny-modules.R
 }
