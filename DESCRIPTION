@@ -1,6 +1,6 @@
 Package: shinybones
 Title: A highly opinionated framework for building shiny dashboards.
-Version: 0.2
+Version: 0.2.1
 Authors@R: 
     person(given = "Ramnath",
            family = "Vaidyanathan",
