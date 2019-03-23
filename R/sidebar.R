@@ -88,12 +88,13 @@ sb_create_sidebar_conditional_panels <- function(config,
                 paste0(.$module, "_ui_sidebar")
               )
               if (!is.null(.fun)){
+                idName = paste(tabName, make_tab_name(.), sep = "-")
                 conditionalPanel(
                   sprintf(
                     "input.smenu == '%s' && input['%s'] == '%s'",
                     tabName, paste0(tabName, '-tab'), .$text
                   ),
-                  .fun(tabName, data_global = data_global)
+                  .fun(idName, data_global = data_global)
                 )
               }
             }
