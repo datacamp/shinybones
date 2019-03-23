@@ -78,6 +78,26 @@ sb_create_sidebar_conditional_panels <- function(config,
             .fun(tabName, data_global = data_global)
           )
         }
+      } else if (!is.null(.$tabs)){
+        tabName = make_tab_name(.)
+        textName = .$text
+        .$tabs %>%
+          map(~ {
+            if (!is.null(.$module)){
+              .fun <- purrr::possibly(match.fun, NULL)(
+                paste0(.$module, "_ui_sidebar")
+              )
+              if (!is.null(.fun)){
+                conditionalPanel(
+                  sprintf(
+                    "input.smenu == '%s' && input['%s'] == '%s'",
+                    tabName, paste0(tabName, '-tab'), .$text
+                  ),
+                  .fun(tabName, data_global = data_global)
+                )
+              }
+            }
+          })
       }
     }) %>%
     tagList()
