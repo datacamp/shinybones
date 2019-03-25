@@ -1,0 +1,13 @@
+name: Main Dashboard
+sidebar:
+  - text: Dashboards
+    icon: dashboard
+    module: test_input_global
+
+  - text: Charts
+    icon: bar-chart-o
+    tabs:
+      - text: Plot
+        module: test_input_global
+      - text: Data
+      - text: About
