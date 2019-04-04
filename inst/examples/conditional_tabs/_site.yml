@@ -1,0 +1,11 @@
+name: Main Dashboard
+sidebar:
+  - text: Dashboards
+    icon: dashboard
+
+  - text: Charts
+    icon: bar-chart-o
+    tabs:
+      - text: Plot
+      - text: Data
+      - text: About
