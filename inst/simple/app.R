@@ -4,6 +4,7 @@ library(shinydashboard)
 library(shinybones)
 
 # Load Utilities -----
+source_dirs('utils')
 source_dirs('components')
 source_dirs('pages')
 
@@ -14,6 +15,7 @@ DATA <- list(
 )
 
 # Configuration
+options("yaml.eval.expr" = TRUE)
 CONFIG <- yaml::read_yaml('_site.yml')
 
 # UI ----
@@ -40,4 +42,4 @@ server <- function(input, output, session){
 }
 
 # Run App ----
-shinyApp(ui = ui, server = server)
+shinyApp(ui = ui, server = server, enableBookmarking = 'url')
