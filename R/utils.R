@@ -86,3 +86,7 @@ bulletize <- function(line, bullet = "*") {
 cat_line <- function(...) {
   cat(..., "\n", sep = "")
 }
+
+match_fun_safely <- function(x){
+  purrr::possibly(match.fun, function(...){NULL})(x)
+}
