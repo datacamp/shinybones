@@ -7,27 +7,26 @@
 #' @importFrom purrr map
 #' @importFrom shiny NS tabPanel tabsetPanel
 #' @export
-sb_create_tab_items <- function(config, data_global, display_tab = function(x){TRUE}, quietly = FALSE){
+sb_create_tab_items <- function(config,
+                                data_global,
+                                display_tab = function(x){TRUE},
+                                quietly = FALSE){
   message("Creating tab items ...")
-  modules <- get_modules(config)
-  modules %>%
-    purrr::map(~ {
-      message('Processing the page for ', .$text, " ...")
-      tabName = make_tab_name(.)
-      if (!is.null(.$ui)){
-        return(shinydashboard::tabItem(tabName, .$ui))
+  config %>%
+    get_modules() %>%
+    purrr::map(function(m){
+      message('Processing the page for ', m$text, " ...")
+      tabName = make_tab_name(m)
+      if (!is.null(m$ui)){
+        return(shinydashboard::tabItem(tabName, m$ui))
       }
-      .fun <- if (!is.null(.$module)){
-        get_module_ui(., quietly = quietly)
-      } else if (!is.null(.$tabs)) {
-        .$tabs <- map(.$tabs, .process_module)
-        module_tabs_ui(.$tabs, display_tab)
+      mod_ui <- if (!is.null(m$tabs)){
+        module_tabs_ui(.process_module(m$tabs), display_tab)
       } else {
-        get_module_ui(.)
+        get_module_ui(m, quietly = quietly)
       }
-      shinydashboard::tabItem(
-        tabName, .fun(tabName, data_global = data_global)
-      )
+      l <- append(list(id = tabName, data_global = data_global), m$module_params)
+      shinydashboard::tabItem(tabName, do.call(mod_ui, l))
     }) %>%
     do.call(tabItems, .)
 }
