@@ -8,47 +8,31 @@
 sb_create_sidebar <- function(config, data_global,
     display_page = function(x){TRUE}){
   s1 <- config$sidebar %>%
-    purrr::map(~ {
-      if (!display_page(.$text)){
+    purrr::map(function(item){
+      if (!display_page(item$text)){
         return(NULL)
       }
-      if (length(.$menu) >= 1){
-          .text <- .x$text
-          .startExpanded <- if (is.null(.x$startExpanded)) {
-              FALSE
-           } else {
-             .x$startExpanded
-           }
-          .icon=   icon(.x$icon)
-          .$menu %>%
-             map(~ {
-               if (!display_page(.$text)) {
-                 return(NULL)
-               }
-               if (!is.null(.$href)){
-                 return(menuSubItem(.$text, href = .$href))
-               }
-               tabName = make_tab_name(.)
-               if (.$text != "") {
-                   menuSubItem(.$text, tabName = tabName)
-               } else {
-                 fun_ui_sidebar <- match.fun(paste0(.$module, '_ui_sidebar'))
-                 fun_ui_sidebar(tabName)
-               }
-             }) %>%
-             append(list(text = .text, icon = .icon, startExpanded = .startExpanded)) %>%
-             do.call(menuItem, .)
+      item$icon = icon(item$icon)
+      if (length(item$menu) >= 1){
+        subitems <- item$menu %>%
+          map(function(subitem){
+            if (!display_page(subitem$text)) {
+              return(NULL)
+            }
+            if (is.null(subitem$href)) {
+              subitem$tabName = make_tab_name(subitem)
+            }
+            do_call_2(menuSubItem, subitem)
+          })
+        item <- append(item, subitems)
       } else {
-        if (!is.null(.$href)) {
-          menuItem(.$text, href = .$href, icon = icon(.$icon))
-        } else {
-          menuItem(.$text, tabName = make_tab_name(.), icon = icon(.$icon))
+        if (is.null(item$href)) {
+          item$tabName = make_tab_name(item)
         }
       }
+      do_call_2(menuItem, item)
     }) %>%
-    append(list(id = 'smenu')) %>%
-    do.call(sidebarMenu, .)
-  # UNCOMMENT OUT CONDITIONAL PANELS FOR NOW ---
+    sidebarMenu(.list = ., id = 'smenu')
   s2 <- sb_create_sidebar_conditional_panels(
     config, data_global = data_global
   )
