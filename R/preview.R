@@ -84,5 +84,5 @@ preview_component <- function (x, title = "Preview", use_box = TRUE, ...){
   module <- function(input, output, session, ...){
 
   }
-  preview_module('module', use_box = use_box, ...)
+  preview_module('module', title = title, use_box = use_box, ...)
 }
