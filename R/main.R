@@ -21,6 +21,7 @@ sb_create_tab_items <- function(config,
         return(shinydashboard::tabItem(tabName, m$ui))
       }
       mod_ui <- if (!is.null(m$tabs)){
+        m$tabs <- map(m$tabs, .process_module)
         module_tabs_ui(.process_module(m$tabs), display_tab)
       } else {
         get_module_ui(m, quietly = quietly)
