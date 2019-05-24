@@ -5,8 +5,8 @@
 \alias{sb_call_all_modules}
 \title{Call all modules}
 \usage{
-sb_call_modules(config, data_global, display_tab = function(x) {     TRUE
-  })
+sb_call_modules(config, data_global = list(), input_global = list(),
+  display_tab = function(x) {     TRUE })
 
 sb_call_all_modules(config, data_global, display_tab = function(x) {    
   TRUE })
@@ -14,7 +14,12 @@ sb_call_all_modules(config, data_global, display_tab = function(x) {
 \arguments{
 \item{config}{Dashboard configuration read from _site.yml}
 
-\item{data_global}{Global data passed to the sidebar}
+\item{data_global}{Global data passed to all page modules}
+
+\item{input_global}{Global input passed to page module server functions}
+
+\item{display_tab}{A function that returns a boolean indicating if a tab is
+to be displayed or not.}
 }
 \description{
 Call all modules

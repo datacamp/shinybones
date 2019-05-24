@@ -4,7 +4,9 @@
 \alias{sb_create_app}
 \title{Run a ShinyDashboard App created using ShinyBones}
 \usage{
-sb_create_app(app_dir = ".", data_global = list())
+sb_create_app(app_dir = ".",
+  config = yaml::read_yaml(file.path(app_dir, "_site.yml")),
+  data_global = list())
 }
 \description{
 Run a ShinyDashboard App created using ShinyBones

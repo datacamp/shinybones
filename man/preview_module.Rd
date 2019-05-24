@@ -3,24 +3,38 @@
 \name{preview_module}
 \alias{preview_module}
 \alias{preview_component}
-\title{Preview a shiny module or a UI component in a shinydashboard}
+\alias{preview_datatable}
+\title{Preview a html component, a shiny module, or a datatable in a shinydashboard}
 \usage{
 preview_module(module, name = "module", use_box = FALSE,
   title = name, titleWidth = NULL, preview = TRUE, ...)
 
 preview_component(x, title = "Preview", use_box = TRUE, ...)
+
+preview_datatable(data, ...)
 }
 \arguments{
-\item{name}{Namespace to call the module}
+\item{module}{The server function of a module or its name.}
+
+\item{name}{The id to pass to callModule while calling it.}
+
+\item{use_box}{A boolean indicating if the ui should be wrapped in a
+box}
+
+\item{title}{The dashboard title to display.}
+
+\item{titleWidth}{The width of the dashboard title.}
+
+\item{preview}{A boolean indicating if the return value should be a shinyApp
+object (default) or a named list with ui and server.}
 
 \item{...}{Additional parameters to pass to the module}
-
-\item{module_name}{Name of the module}
 }
 \description{
-Preview a shiny module or a UI component in a shinydashboard
+Preview a html component, a shiny module, or a datatable in a shinydashboard
 }
 \examples{
+library(shiny)
 slider_text_ui <- function(id){
   ns <- NS(id)
   tagList(
@@ -32,7 +46,12 @@ slider_text <- function(input, output, session){
    output$num_text <- renderText({input$num})
 }
 preview_module(slider_text, title = 'Slider Text')
-preview_module("slider_text")
-ui <- dcdash::dc_datatable(mtcars)
+preview_module(slider_text, title = 'Slider Text', use_box = TRUE)
+ui <- DT::datatable(mtcars, width = '100\%', extension = 'Responsive')
 preview_component(ui)
+preview_datatable(mtcars,
+  style = 'bootstrap',
+  width = '100\%',
+  extension = 'Responsive'
+)
 }
