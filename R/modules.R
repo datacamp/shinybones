@@ -36,7 +36,8 @@ get_modules <- function(config){
   b1 <- b1 %>%
     map(.process_module)
   b2 <- config$sidebar %>%
-    purrr:::map(~ {.$menu <- NULL; .})
+    purrr:::map(~ {.$menu <- NULL; .}) %>%
+    map(.process_module)
   append(b1, b2)
 }
 
