@@ -1,12 +1,19 @@
-#' Preview a shiny module or a UI component in a shinydashboard
+#' Preview a html component, a shiny module, or a datatable in a shinydashboard
 #'
-#' @param module_name Name of the module
-#' @param name Namespace to call the module
+#' @param module The server function of a module or its name.
+#' @param name The id to pass to callModule while calling it.
+#' @param use_box A boolean indicating if the ui should be wrapped in a
+#'   box
+#' @param title The dashboard title to display.
+#' @param titleWidth The width of the dashboard title.
+#' @param preview A boolean indicating if the return value should be a shinyApp
+#'   object (default) or a named list with ui and server.
 #' @param ... Additional parameters to pass to the module
 #' @import shinydashboard
 #' @importFrom purrr possibly
 #' @export
 #' @examples
+#' library(shiny)
 #' slider_text_ui <- function(id){
 #'   ns <- NS(id)
 #'   tagList(
@@ -18,7 +25,7 @@
 #'    output$num_text <- renderText({input$num})
 #' }
 #' preview_module(slider_text, title = 'Slider Text')
-#' preview_module("slider_text")
+#' preview_module(slider_text, title = 'Slider Text', use_box = TRUE)
 preview_module <- function(module, name = 'module', use_box = FALSE,
     title = name, titleWidth = NULL,
     preview = TRUE, ...){
@@ -75,14 +82,35 @@ preview_module <- function(module, name = 'module', use_box = FALSE,
 #' @export
 #' @rdname preview_module
 #' @examples
-#' ui <- dcdash::dc_datatable(mtcars)
+#' ui <- DT::datatable(mtcars, width = '100%', extension = 'Responsive')
 #' preview_component(ui)
 preview_component <- function (x, title = "Preview", use_box = TRUE, ...){
-  module_ui <- function(id) {
-   x
-  }
-  module <- function(input, output, session, ...){
-
-  }
+  module_ui <- function(id){x}
+  module <- function(input, output, session, ...){}
   preview_module('module', title = title, use_box = use_box, ...)
+}
+
+#' @export
+#' @rdname preview_module
+#' @examples
+#' preview_datatable(mtcars,
+#'   style = 'bootstrap',
+#'   width = '100%',
+#'   extension = 'Responsive'
+#' )
+preview_datatable <- function(data, ...){
+  mod_ui <- function(id){
+    ns <- shiny::NS(id)
+    shiny::fluidRow(box(
+      width = 12,
+      DT::DTOutput(ns('dt'))
+    ))
+  }
+
+  mod <- function(input, output, session){
+    output$dt <- DT::renderDT({
+      DT::datatable(data, ...)
+    })
+  }
+  preview_module(mod)
 }
