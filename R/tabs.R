@@ -1,7 +1,19 @@
-# Generate Tab Modules
-# This is worth exporting
+#' Generate a tab module
+#'
+#' @export
+#' @examples
+#' tabs <- list(
+#'   list(text = 'Tab 1'),
+#'   list(text = 'Tab 2')
+#' )
+#' test_mod <- module_tabs(tabs)
+#' test_mod_ui <- module_tabs_ui(tabs)
+#' preview_module(test_mod)
 module_tabs <- function(tabs, display_tab = function(x){TRUE}){
-  function(input, output, session, data_global, input_global, ...){
+  function(input, output, session,
+           data_global = list(),
+           input_global = list(),
+           ...){
     ns <- session$ns
     tabs %>%
       purrr::walk(~ {
@@ -18,23 +30,27 @@ module_tabs <- function(tabs, display_tab = function(x){TRUE}){
             do.call(callModule, l)
           }
         }
-        if (!display_tab(.$text)){
-          appendTab('tab', tabPanel(.$text))
-        }
       })
   }
 }
 
+#' @export
+#' @rdname module_tabs_ui
 module_tabs_ui <- function(tabs, display_tab = function(x){TRUE}){
-  function(id, data_global){
+  function(id, data_global = list(), ...){
+    dots <- list(...)
     ns <- shiny::NS(id)
     tabs %>%
-      purrr::keep(~ display_tab(.$text)) %>%
+      purrr::keep(~ display_tab(.x$text)) %>%
       purrr::map(~ {
         tabName <- make_tab_name(.)
         .fun_ui <- get_module_ui(.)
+        args_tabPanel <- append(
+          list(ns(tabName), data_global = data_global),
+          dots
+        )
         shiny::tabPanel(
-          .$text, .fun_ui(ns(tabName), data_global = data_global)
+          .x$text, do.call(.fun_ui, args_tabPanel)
         )
       }) %>%
       append(list(id = ns('tab'))) %>%
