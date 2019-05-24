@@ -35,7 +35,7 @@ module_tabs <- function(tabs, display_tab = function(x){TRUE}){
 }
 
 #' @export
-#' @rdname module_tabs_ui
+#' @rdname module_tabs
 module_tabs_ui <- function(tabs, display_tab = function(x){TRUE}){
   function(id, data_global = list(), ...){
     dots <- list(...)
