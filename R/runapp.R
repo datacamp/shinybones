@@ -2,8 +2,10 @@
 #'
 #' @export
 #'
-sb_create_app <- function(app_dir = ".", data_global = list()){
-  config <- yaml::read_yaml(file.path(app_dir, '_site.yml'))
+sb_create_app <- function(app_dir = ".",
+    config = yaml::read_yaml(file.path(app_dir, '_site.yml')),
+    data_global = list()
+  ){
   # UI ----
   ui <- function(request){
     shinydashboard::dashboardPage(
