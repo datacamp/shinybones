@@ -78,7 +78,11 @@ sb_create_sidebar_conditional_panels <- function(config,
                     "input.smenu == '%s' && input['%s'] == '%s'",
                     tabName, paste0(tabName, '-tab'), .$text
                   ),
-                  .fun(idName, data_global = data_global)
+                  if ('data_global' %in% formalArgs(.fun)){
+                    .fun(idName, data_global = data_global)
+                  } else {
+                    .fun(idName)
+                  }
                 )
               }
             }

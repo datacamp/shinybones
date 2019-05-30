@@ -26,7 +26,11 @@ sb_create_tab_items <- function(config,
       } else {
         get_module_ui(m, quietly = quietly)
       }
-      l <- append(list(id = tabName, data_global = data_global), m$module_params)
+      l <- list(id = tabName)
+      if ('data_global' %in% formalArgs(mod_ui)){
+        l$data_global <- data_global
+      }
+      l <- append(l, m$module_params)
       shinydashboard::tabItem(tabName, do.call(mod_ui, l))
     }) %>%
     do.call(tabItems, .)
@@ -55,9 +59,13 @@ sb_call_modules <- function(config,
         .fun <- module_tabs(.$tabs, display_tab)
       }
       if (!is.null(.fun)){
-        l <- list(
-          .fun, tabName, data_global = data_global, input_global = input_global
-        )
+        l <- list(.fun, tabName)
+        if ('data_global' %in% formalArgs(.fun)){
+          l$data_global <- data_global
+        }
+        if ('input_global' %in% formalArgs(.fun)){
+          l$input_global <- input_global
+        }
         l <- append(l, .$module_params)
         do.call(callModule, l)
       }
