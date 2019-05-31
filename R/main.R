@@ -10,12 +10,14 @@
 sb_create_tab_items <- function(config,
                                 data_global,
                                 display_tab = function(x){TRUE},
-                                quietly = FALSE){
+                                quietly = getOption('sb.quietly', FALSE)){
   message("Creating tab items ...")
   config %>%
     get_modules() %>%
     purrr::map(function(m){
-      message('Processing the page for ', m$text, " ...")
+      if (!quietly){
+        message('Processing the page for ', m$text, " ...")
+      }
       tabName = make_tab_name(m)
       if (!is.null(m$ui)){
         return(shinydashboard::tabItem(tabName, m$ui))
