@@ -66,6 +66,7 @@ sb_create_sidebar_conditional_panels <- function(config,
         tabName = make_tab_name(.)
         textName = .$text
         .$tabs %>%
+          map(.process_module) %>%
           map(~ {
             if (!is.null(.$module)){
               .fun <- purrr::possibly(match.fun, NULL)(
