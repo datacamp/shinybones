@@ -6,6 +6,11 @@
 \usage{
 source_dirs(..., recursive = FALSE)
 }
+\arguments{
+\item{...}{directories to source R scripts from}
+
+\item{recursive}{logical. Should the listing recurse into directories?}
+}
 \description{
 Source R files from multiple directories recursively
 }

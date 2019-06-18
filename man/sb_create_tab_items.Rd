@@ -5,7 +5,7 @@
 \title{Create tab items}
 \usage{
 sb_create_tab_items(config, data_global, display_tab = function(x) {    
-  TRUE }, quietly = FALSE)
+  TRUE }, quietly = getOption("sb.quietly", FALSE))
 }
 \arguments{
 \item{config}{Dashboard configuration read from _site.yml}

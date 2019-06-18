@@ -8,6 +8,15 @@ sb_add_page(module, text = module,
   dir_pages = getOption("SB_DIR_PAGES", "pages"), add_to_yaml = FALSE,
   ...)
 }
+\arguments{
+\item{module}{name of the module}
+
+\item{text}{text}
+
+\item{dir_pages}{directory to save the module to}
+
+\item{add_to_yaml}{logical indicating if module should be added to _site.yml}
+}
 \description{
 Add a page module
 }

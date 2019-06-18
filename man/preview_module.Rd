@@ -34,24 +34,30 @@ object (default) or a named list with ui and server.}
 Preview a html component, a shiny module, or a datatable in a shinydashboard
 }
 \examples{
-library(shiny)
-slider_text_ui <- function(id){
-  ns <- NS(id)
-  tagList(
-    sliderInput(ns('num'), 'Enter Number', 0, 1, 0.5),
-    textOutput(ns('num_text'))
-  )
-}
-slider_text <- function(input, output, session){
-   output$num_text <- renderText({input$num})
+\dontrun{
+ library(shiny)
+ slider_text_ui <- function(id){
+   ns <- NS(id)
+   tagList(
+     sliderInput(ns('num'), 'Enter Number', 0, 1, 0.5),
+     textOutput(ns('num_text'))
+   )
+ }
+ slider_text <- function(input, output, session){
+    output$num_text <- renderText({input$num})
+ }
 }
 preview_module(slider_text, title = 'Slider Text')
 preview_module(slider_text, title = 'Slider Text', use_box = TRUE)
-ui <- DT::datatable(mtcars, width = '100\%', extension = 'Responsive')
-preview_component(ui)
-preview_datatable(mtcars,
-  style = 'bootstrap',
-  width = '100\%',
-  extension = 'Responsive'
-)
+\dontrun{
+ ui <- DT::datatable(mtcars, width = '100\%', extension = 'Responsive')
+ preview_component(ui)
+}
+\dontrun{
+ preview_datatable(mtcars,
+   style = 'bootstrap',
+   width = '100\%',
+   extension = 'Responsive'
+ )
+}
 }

@@ -1,5 +1,9 @@
 #' Add a page module
 #'
+#' @param module name of the module
+#' @param text text
+#' @param dir_pages directory to save the module to
+#' @param add_to_yaml logical indicating if module should be added to _site.yml
 #' @export
 #' @importFrom crayon green
 sb_add_page <- function(module, text = module, dir_pages =
