@@ -1,5 +1,7 @@
 #' Source R files from multiple directories recursively
 #'
+#' @param ... directories to source R scripts from
+#' @param recursive logical. Should the listing recurse into directories?
 #' @export
 #' @importFrom purrr walk
 #' @importFrom htmltools span
@@ -91,10 +93,9 @@ match_fun_safely <- function(x){
   purrr::possibly(match.fun, function(...){NULL})(x)
 }
 
-#' A version of do.call that throws away extraneous arguments
-#'
-#' @examples
-#' # do_call_2(rnorm, list(n = 10, mean = 0, foo = 'bar'))
+# A version of do.call that throws away extraneous arguments
+# @examples
+# do_call_2(rnorm, list(n = 10, mean = 0, foo = 'bar'))
 do_call_2 <- function(what, args, ...){
   args_what <- formalArgs(what)
   args <- args[names(args) %in% c("", args_what)]
