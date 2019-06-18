@@ -1,6 +1,10 @@
 # ShinyBones <img src="man/figures/logo.png" width="120px" align="right" />
 
- [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+<!-- badges: start -->
+  [![Travis build status](https://travis-ci.org/ramnathv/shinybones.svg?branch=master)](https://travis-ci.org/ramnathv/shinybones)
+   [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+<!-- badges: end -->
+
 
 
 __shinybones__ is an R package that provides a highly opinionated way to organize large, multi-page shiny dashboards. It allows users to focus on building independent modules for each page following a minimal set of conventions, and relegating all the boilerplate code involding in laying them out in the dashboard to a simple YAML configuration file.
