@@ -94,7 +94,7 @@ match_fun_safely <- function(x){
 #' A version of do.call that throws away extraneous arguments
 #'
 #' @examples
-#' do_call_2(rnorm, list(n = 10, mean = 0, foo = 'bar'))
+#' # do_call_2(rnorm, list(n = 10, mean = 0, foo = 'bar'))
 do_call_2 <- function(what, args, ...){
   args_what <- formalArgs(what)
   args <- args[names(args) %in% c("", args_what)]
