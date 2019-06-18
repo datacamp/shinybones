@@ -13,16 +13,18 @@
 #' @importFrom purrr possibly
 #' @export
 #' @examples
-#' library(shiny)
-#' slider_text_ui <- function(id){
-#'   ns <- NS(id)
-#'   tagList(
-#'     sliderInput(ns('num'), 'Enter Number', 0, 1, 0.5),
-#'     textOutput(ns('num_text'))
-#'   )
-#' }
-#' slider_text <- function(input, output, session){
-#'    output$num_text <- renderText({input$num})
+#' \dontrun{
+#'  library(shiny)
+#'  slider_text_ui <- function(id){
+#'    ns <- NS(id)
+#'    tagList(
+#'      sliderInput(ns('num'), 'Enter Number', 0, 1, 0.5),
+#'      textOutput(ns('num_text'))
+#'    )
+#'  }
+#'  slider_text <- function(input, output, session){
+#'     output$num_text <- renderText({input$num})
+#'  }
 #' }
 #' preview_module(slider_text, title = 'Slider Text')
 #' preview_module(slider_text, title = 'Slider Text', use_box = TRUE)
@@ -82,8 +84,10 @@ preview_module <- function(module, name = 'module', use_box = FALSE,
 #' @export
 #' @rdname preview_module
 #' @examples
-#' ui <- DT::datatable(mtcars, width = '100%', extension = 'Responsive')
-#' preview_component(ui)
+#' \dontrun{
+#'  ui <- DT::datatable(mtcars, width = '100%', extension = 'Responsive')
+#'  preview_component(ui)
+#' }
 preview_component <- function (x, title = "Preview", use_box = TRUE, ...){
   module_ui <- function(id){x}
   module <- function(input, output, session, ...){}
@@ -93,11 +97,13 @@ preview_component <- function (x, title = "Preview", use_box = TRUE, ...){
 #' @export
 #' @rdname preview_module
 #' @examples
-#' preview_datatable(mtcars,
-#'   style = 'bootstrap',
-#'   width = '100%',
-#'   extension = 'Responsive'
-#' )
+#' \dontrun{
+#'  preview_datatable(mtcars,
+#'    style = 'bootstrap',
+#'    width = '100%',
+#'    extension = 'Responsive'
+#'  )
+#' }
 preview_datatable <- function(data, ...){
   mod_ui <- function(id){
     ns <- shiny::NS(id)
