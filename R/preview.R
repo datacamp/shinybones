@@ -99,6 +99,7 @@ preview_component <- function (x, title = "Preview", use_box = TRUE, ...){
 #' @param data A data frame object.
 #' @param fun A function that transforms the data into a datatable. It defaults
 #'   to \code{\link[DT]{datatable}}.
+#' @param ui A \code{shiny.tag} object to include in the UI function.
 #' @param ... Additional parameters to pass to \code{fun}.
 #' @examples
 #' \dontrun{
