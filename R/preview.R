@@ -96,6 +96,10 @@ preview_component <- function (x, title = "Preview", use_box = TRUE, ...){
 
 #' @export
 #' @rdname preview_module
+#' @param data A data frame object.
+#' @param fun A function that transforms the data into a datatable. It defaults
+#'   to \code{\link[DT]{datatable}}.
+#' @param ... Additional parameters to pass to \code{fun}.
 #' @examples
 #' \dontrun{
 #'  preview_datatable(mtcars,
@@ -104,18 +108,19 @@ preview_component <- function (x, title = "Preview", use_box = TRUE, ...){
 #'    extension = 'Responsive'
 #'  )
 #' }
-preview_datatable <- function(data, ...){
+preview_datatable <- function(data, fun = DT::datatable, ui = NULL, ...){
   mod_ui <- function(id){
     ns <- shiny::NS(id)
     shiny::fluidRow(box(
       width = 12,
-      DT::DTOutput(ns('dt'))
+      DT::DTOutput(ns('dt')),
+      ui
     ))
   }
 
   mod <- function(input, output, session){
     output$dt <- DT::renderDT({
-      DT::datatable(data, ...)
+      fun(data, ...)
     })
   }
   preview_module(mod)
