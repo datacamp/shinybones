@@ -11,7 +11,7 @@ preview_module(module, name = "module", use_box = FALSE,
 
 preview_component(x, title = "Preview", use_box = TRUE, ...)
 
-preview_datatable(data, ...)
+preview_datatable(data, fun = DT::datatable, ui = NULL, ...)
 }
 \arguments{
 \item{module}{The server function of a module or its name.}
@@ -29,6 +29,13 @@ box}
 object (default) or a named list with ui and server.}
 
 \item{...}{Additional parameters to pass to the module}
+
+\item{data}{A data frame object.}
+
+\item{fun}{A function that transforms the data into a datatable. It defaults
+to \code{\link[DT]{datatable}}.}
+
+\item{...}{Additional parameters to pass to \code{fun}.}
 }
 \description{
 Preview a html component, a shiny module, or a datatable in a shinydashboard
