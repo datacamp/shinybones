@@ -97,7 +97,21 @@ match_fun_safely <- function(x){
 # @examples
 # do_call_2(rnorm, list(n = 10, mean = 0, foo = 'bar'))
 do_call_2 <- function(what, args, ...){
-  args_what <- formalArgs(what)
+  args_what <- methods::formalArgs(what)
   args <- args[names(args) %in% c("", args_what)]
   do.call(what, args, ...)
 }
+
+check_rstudio <- function(){
+  if (!requireNamespace("rstudioapi", quietly = TRUE)){
+    stop(
+      paste(
+        "This requires to be run inside RStudio as",
+        "it needs the rstudioapi package"
+      ),
+      call. = FALSE
+    )
+  }
+}
+
+utils::globalVariables(".")

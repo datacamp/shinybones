@@ -17,7 +17,7 @@ get_module_ui <- function(., quietly = getOption('sb.quietly', FALSE)){
   } else {
     module_ui_name <- paste0(.$module, "_ui")
     msg <- sprintf("No function named %s can be found", module_ui_name)
-    f <- purrr:::safely(match.fun)(module_ui_name)
+    f <- purrr::safely(match.fun)(module_ui_name)
     if (is.null(f$result)){
       return(default_placeholder_ui(.$text, msg, quietly = quietly))
     } else {
@@ -36,7 +36,7 @@ get_modules <- function(config){
   b1 <- b1 %>%
     map(.process_module)
   b2 <- config$sidebar %>%
-    purrr:::map(~ {.$menu <- NULL; .}) %>%
+    purrr::map(~ {.$menu <- NULL; .}) %>%
     map(.process_module)
   append(b1, b2)
 }

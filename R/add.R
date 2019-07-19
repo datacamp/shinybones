@@ -1,13 +1,18 @@
 #' Add a page module
 #'
 #' @param module name of the module
-#' @param text text
+#' @param text text to add to _site.yml
 #' @param dir_pages directory to save the module to
 #' @param add_to_yaml logical indicating if module should be added to _site.yml
+#' @param ... additional parameters to add to _site.yml
 #' @export
 #' @importFrom crayon green
-sb_add_page <- function(module, text = module, dir_pages =
-   getOption('SB_DIR_PAGES', 'pages'), add_to_yaml = FALSE, ...){
+sb_add_page <- function(module,
+                        text = module,
+                        dir_pages = getOption('SB_DIR_PAGES', 'pages'),
+                        add_to_yaml = FALSE,
+                        ...){
+  check_rstudio()
   snippet_page <- system.file(
     'rstudio', 'snippets', 'sbpage.txt', package = 'shinybones'
   )
@@ -44,8 +49,10 @@ sb_add_page <- function(module, text = module, dir_pages =
 #' Add a component module
 #'
 #' @export
-sb_add_component <- function(module, text = module, dir_pages =
-    getOption('SB_DIR_COMPONENTS', 'components'), ...){
+#' @rdname sb_add_page
+sb_add_component <- function(module,
+                             dir_pages = getOption('SB_DIR_COMPONENTS', 'components'),
+                             ...){
   snippet <- system.file(
     'rstudio', 'snippets', 'sbcomponent.txt', package = 'shinybones'
   )

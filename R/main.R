@@ -4,6 +4,8 @@
 #' @param data_global Global data passed automatically from app.R
 #' @param display_tab A function that returns a boolean indicating whether a tab
 #'   is to be displayed in the UI
+#' @param quietly A boolean indicating if diagnostic messages should be
+#'   suppressed
 #' @importFrom purrr map
 #' @importFrom shiny NS tabPanel tabsetPanel
 #' @export

@@ -1,14 +1,18 @@
 #' Generate a tab module
 #'
 #' @export
+#' @param tabs A list of tabs, where each tab is a list.
+#' @param display_tab A function to check if a tab should be displayed.
 #' @examples
-#' tabs <- list(
-#'   list(text = 'Tab 1'),
-#'   list(text = 'Tab 2')
-#' )
-#' test_mod <- module_tabs(tabs)
-#' test_mod_ui <- module_tabs_ui(tabs)
-#' preview_module(test_mod)
+#' \dontrun{
+#'   tabs <- list(
+#'     list(text = 'Tab 1'),
+#'     list(text = 'Tab 2')
+#'   )
+#'   test_mod <- module_tabs(tabs)
+#'   test_mod_ui <- module_tabs_ui(tabs)
+#'   preview_module(test_mod)
+#' }
 module_tabs <- function(tabs, display_tab = function(x){TRUE}){
   function(input, output, session,
            data_global = list(),

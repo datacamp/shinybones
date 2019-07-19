@@ -12,7 +12,7 @@ sb_create_sidebar <- function(config, data_global,
       if (!display_page(item$text)){
         return(NULL)
       }
-      item$icon = icon(item$icon)
+      item$icon = shiny::icon(item$icon)
       if (length(item$menu) >= 1){
         subitems <- item$menu %>%
           map(function(subitem){
@@ -36,15 +36,16 @@ sb_create_sidebar <- function(config, data_global,
   s2 <- sb_create_sidebar_conditional_panels(
     config, data_global = data_global
   )
-  tagList(s1, s2)
+  shiny::tagList(s1, s2)
 }
 
 #' Create conditional panels
 #'
 #'
 #' @export
+#' @inheritParams sb_create_app
 sb_create_sidebar_conditional_panels <- function(config,
-    data_global = list()){
+                                                 data_global = list()){
   modules <- get_modules(config)
   modules %>%
     purrr::map(~ {
@@ -86,5 +87,5 @@ sb_create_sidebar_conditional_panels <- function(config,
           })
       }
     }) %>%
-    tagList()
+    shiny::tagList()
 }

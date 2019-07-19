@@ -1,13 +1,14 @@
 #' Add snippets to your ~/.R/snippets/r.snippets
 #'
 #' @export
-#'
+#' @param sn_file Path to the file r.snippets
 #' @examples
 #' \dontrun{
 #'   sb_add_snippets()
 #' }
 #' @importFrom purrr map map_chr
 #' @importFrom rlang set_names
+#' @importFrom utils modifyList
 sb_add_snippets <- function(sn_file = "~/.R/snippets/r.snippets"){
   r_snippets <- read_snippets(sn_file)
   # Inspired from package:shinysnippets
@@ -16,7 +17,7 @@ sb_add_snippets <- function(sn_file = "~/.R/snippets/r.snippets"){
   x <- readline("Type Y/y to confirm.")
   res <- FALSE
   if (tolower(x) == "y"){
-    r_snippets <- modifyList(r_snippets, make_snippets())
+    r_snippets <- utils::modifyList(r_snippets, make_snippets())
     res <- r_snippets %>%
       unlist() %>%
       paste(collapse = "\n") %>%
