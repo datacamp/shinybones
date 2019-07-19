@@ -2,16 +2,10 @@
 % Please edit documentation in R/preview.R
 \name{preview_module}
 \alias{preview_module}
-\alias{preview_component}
-\alias{preview_datatable}
-\title{Preview a html component, a shiny module, or a datatable in a shinydashboard}
+\title{Preview a shiny module in a shinydashboard}
 \usage{
 preview_module(module, name = "module", use_box = FALSE,
   title = name, titleWidth = NULL, preview = TRUE, ...)
-
-preview_component(x, title = "Preview", use_box = TRUE, ...)
-
-preview_datatable(data, fun = DT::datatable, ui = NULL, ...)
 }
 \arguments{
 \item{module}{The server function of a module or its name.}
@@ -29,44 +23,29 @@ box}
 object (default) or a named list with ui and server.}
 
 \item{...}{Additional parameters to pass to the module}
-
-\item{data}{A data frame object.}
-
-\item{fun}{A function that transforms the data into a datatable. It defaults
-to \code{\link[DT]{datatable}}.}
-
-\item{ui}{A \code{shiny.tag} object to include in the UI function.}
-
-\item{...}{Additional parameters to pass to \code{fun}.}
 }
 \description{
-Preview a html component, a shiny module, or a datatable in a shinydashboard
+Preview a shiny module in a shinydashboard
 }
 \examples{
 \dontrun{
- library(shiny)
- slider_text_ui <- function(id){
-   ns <- NS(id)
-   tagList(
-     sliderInput(ns('num'), 'Enter Number', 0, 1, 0.5),
-     textOutput(ns('num_text'))
-   )
- }
- slider_text <- function(input, output, session){
-    output$num_text <- renderText({input$num})
- }
-}
-preview_module(slider_text, title = 'Slider Text')
-preview_module(slider_text, title = 'Slider Text', use_box = TRUE)
-\dontrun{
- ui <- DT::datatable(mtcars, width = '100\%', extension = 'Responsive')
- preview_component(ui)
-}
-\dontrun{
- preview_datatable(mtcars,
-   style = 'bootstrap',
-   width = '100\%',
-   extension = 'Responsive'
- )
+  library(shiny)
+  slider_text_ui <- function(id){
+    ns <- NS(id)
+    tagList(
+      sliderInput(ns('num'), 'Enter Number', 0, 1, 0.5),
+      textOutput(ns('num_text'))
+    )
+  }
+  slider_text <- function(input, output, session){
+     output$num_text <- renderText({input$num})
+  }
+  preview_module(slider_text, title = 'Slider Text')
+  preview_module(slider_text, title = 'Slider Text', use_box = TRUE)
 }
 }
+\seealso{
+Other preview: \code{\link{preview_component}},
+  \code{\link{preview_datatable}}
+}
+\concept{preview}

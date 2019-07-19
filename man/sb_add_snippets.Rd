@@ -6,6 +6,9 @@
 \usage{
 sb_add_snippets(sn_file = "~/.R/snippets/r.snippets")
 }
+\arguments{
+\item{sn_file}{Path to the file r.snippets}
+}
 \description{
 Add snippets to your ~/.R/snippets/r.snippets
 }

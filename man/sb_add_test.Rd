@@ -6,6 +6,9 @@
 \usage{
 sb_add_test(module_name)
 }
+\arguments{
+\item{module_name}{Name of the module.}
+}
 \description{
 TODO: Automatically add a test file as testthat/test-shiny-modules.R
 }

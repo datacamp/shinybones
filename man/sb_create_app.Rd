@@ -8,6 +8,14 @@ sb_create_app(app_dir = ".",
   config = yaml::read_yaml(file.path(app_dir, "_site.yml")),
   data_global = list())
 }
+\arguments{
+\item{app_dir}{The directory containing the app.}
+
+\item{config}{The configuration specifying the layout.}
+
+\item{data_global}{The global data object that will be passed on to all
+page modules.}
+}
 \description{
 Run a ShinyDashboard App created using ShinyBones
 }

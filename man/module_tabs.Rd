@@ -9,15 +9,22 @@ module_tabs(tabs, display_tab = function(x) {     TRUE })
 
 module_tabs_ui(tabs, display_tab = function(x) {     TRUE })
 }
+\arguments{
+\item{tabs}{A list of tabs, where each tab is a list.}
+
+\item{display_tab}{A function to check if a tab should be displayed.}
+}
 \description{
 Generate a tab module
 }
 \examples{
-tabs <- list(
-  list(text = 'Tab 1'),
-  list(text = 'Tab 2')
-)
-test_mod <- module_tabs(tabs)
-test_mod_ui <- module_tabs_ui(tabs)
-preview_module(test_mod)
+\dontrun{
+  tabs <- list(
+    list(text = 'Tab 1'),
+    list(text = 'Tab 2')
+  )
+  test_mod <- module_tabs(tabs)
+  test_mod_ui <- module_tabs_ui(tabs)
+  preview_module(test_mod)
+}
 }

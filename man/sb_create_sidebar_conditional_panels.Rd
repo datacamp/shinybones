@@ -6,6 +6,12 @@
 \usage{
 sb_create_sidebar_conditional_panels(config, data_global = list())
 }
+\arguments{
+\item{config}{The configuration specifying the layout.}
+
+\item{data_global}{The global data object that will be passed on to all
+page modules.}
+}
 \description{
 Create conditional panels
 }

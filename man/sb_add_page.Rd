@@ -2,21 +2,29 @@
 % Please edit documentation in R/add.R
 \name{sb_add_page}
 \alias{sb_add_page}
+\alias{sb_add_component}
 \title{Add a page module}
 \usage{
 sb_add_page(module, text = module,
   dir_pages = getOption("SB_DIR_PAGES", "pages"), add_to_yaml = FALSE,
   ...)
+
+sb_add_component(module, dir_pages = getOption("SB_DIR_COMPONENTS",
+  "components"), ...)
 }
 \arguments{
 \item{module}{name of the module}
 
-\item{text}{text}
+\item{text}{text to add to _site.yml}
 
 \item{dir_pages}{directory to save the module to}
 
 \item{add_to_yaml}{logical indicating if module should be added to _site.yml}
+
+\item{...}{additional parameters to add to _site.yml}
 }
 \description{
 Add a page module
+
+Add a component module
 }
