@@ -1,12 +1,12 @@
 Package: shinybones
-Title: A highly opinionated framework for building shiny dashboards.
-Version: 0.2.3
+Title: A highly opinionated framework for building shiny dashboards
+Version: 0.2.4
 Authors@R: 
     person(given = "Ramnath",
            family = "Vaidyanathan",
            role = c("aut", "cre"),
            email = "ramnath.vaidya@gmail.com")
-Description: A highly opinionated framework for building shiny dashboards
+Description: A highly opinionated framework for building shiny dashboards.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -22,4 +22,10 @@ Imports:
     crayon,
     clisymbols,
     glue,
-    htmltools
+    htmltools,
+    usethis,
+    methods,
+    yaml
+Suggests: 
+    rstudioapi,
+    DT
