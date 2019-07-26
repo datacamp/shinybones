@@ -54,10 +54,19 @@ module_tabs_ui <- function(tabs, display_tab = function(x){TRUE}){
           dots
         )
         shiny::tabPanel(
-          .x$text, do.call(.fun_ui, args_tabPanel)
+          tab_title(.x), do.call(.fun_ui, args_tabPanel)
         )
       }) %>%
       append(list(id = ns('tab'))) %>%
       do.call(shiny::tabsetPanel, .)
+  }
+}
+
+tab_title <- function(.x){
+  if (!is.null(.x$help_text)){
+    tags$span(.x$text) %>%
+      bsplus::bs_embed_tooltip(.x$help_text, placement = 'bottom')
+  } else{
+    .x$text
   }
 }
