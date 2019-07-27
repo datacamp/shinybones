@@ -25,7 +25,8 @@ Imports:
     htmltools,
     usethis,
     methods,
-    yaml
+    yaml,
+    bsplus
 Suggests: 
     rstudioapi,
     DT
