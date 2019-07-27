@@ -13,6 +13,7 @@
 #'   test_mod_ui <- module_tabs_ui(tabs)
 #'   preview_module(test_mod)
 #' }
+#' @importFrom bsplus bs_embed_tooltip
 module_tabs <- function(tabs, display_tab = function(x){TRUE}){
   function(input, output, session,
            data_global = list(),
@@ -64,7 +65,7 @@ module_tabs_ui <- function(tabs, display_tab = function(x){TRUE}){
 
 tab_title <- function(.x){
   if (!is.null(.x$help_text)){
-    tags$span(.x$text) %>%
+    htmltools::tags$span(.x$text) %>%
       bsplus::bs_embed_tooltip(.x$help_text, placement = 'bottom')
   } else{
     .x$text
