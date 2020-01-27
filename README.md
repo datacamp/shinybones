@@ -19,7 +19,7 @@ You can install `shinybones` from github:
 remotes::install_github('ramnathv/shinybones')
 ```
 
-`shinybones` ships with two useful snippets `stpage` and `stcomponent` that lets you create `page` and `component` modules that follow the conventions. You can install it by running `st_add_snippets`. Note that you will need to restart RStudio for the snippets to be usable.
+`shinybones` ships with two useful snippets `stpage` and `stcomponent` that lets you create `page` and `component` modules that follow the conventions. You can install it by running `sb_add_snippets`. Note that you will need to restart RStudio for the snippets to be usable.
 
 ```r
 shinybones::sb_add_snippets()
