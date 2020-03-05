@@ -11,6 +11,9 @@ get_module <- function(.){
 #' 3. Module is found
 #' @importFrom purrr safely
 get_module_ui <- function(., quietly = getOption('sb.quietly', FALSE)){
+  if (!is.null(.$ui)){
+    return(function(id, ...){.$ui})
+  }
   if (is.null(.$module)){
     msg <- sprintf('No module for %s has been specified.', .$text)
     not_specified <- default_placeholder_ui(.$text, msg, quietly = quietly)
