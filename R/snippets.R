@@ -23,12 +23,12 @@ sb_add_snippets <- function(sn_file = "~/.R/snippets/r.snippets"){
       paste(collapse = "\n") %>%
       cat(file = sn_file)
   }
-  if (res){
+  else if (res){
     message("Done!")
     message("Restart RStudio to have access to the snippets.")
-  } else {
+  } else
     message("Copy not done")
-  }
+
 }
 
 # Make snippets
