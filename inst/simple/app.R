@@ -4,7 +4,6 @@ library(shinydashboard)
 library(shinybones)
 
 # Load Utilities -----
-source_dirs('utils')
 source_dirs('components')
 source_dirs('pages')
 
@@ -14,32 +13,5 @@ DATA <- list(
   my_data = mtcars
 )
 
-# Configuration
-options("yaml.eval.expr" = TRUE)
-CONFIG <- yaml::read_yaml('_site.yml')
-
-# UI ----
-ui <- function(request){
-  dashboardPage(
-    # Header ----
-    dashboardHeader(title = CONFIG$name),
-
-    # Sidebar ----
-    dashboardSidebar(
-      sb_create_sidebar(CONFIG, DATA)
-    ),
-
-    # Body -----
-    dashboardBody(
-      sb_create_tab_items(CONFIG, DATA)
-    )
-  )
-}
-
-# Server -----
-server <- function(input, output, session){
-  sb_call_modules(CONFIG, DATA)
-}
-
-# Run App ----
-shinyApp(ui = ui, server = server, enableBookmarking = 'url')
+# Run the app
+sb_create_app("_site.yml", DATA, enableBookmarking = 'url')

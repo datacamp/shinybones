@@ -5,11 +5,18 @@
 \alias{sb_call_all_modules}
 \title{Call all modules}
 \usage{
-sb_call_modules(config, data_global = list(), input_global = list(),
-  display_tab = function(x) {     TRUE })
+sb_call_modules(
+  config,
+  data_global = list(),
+  input_global = list(),
+  display_tab = function(x) {     TRUE }
+)
 
-sb_call_all_modules(config, data_global, display_tab = function(x) {    
-  TRUE })
+sb_call_all_modules(
+  config,
+  data_global,
+  display_tab = function(x) {     TRUE }
+)
 }
 \arguments{
 \item{config}{Dashboard configuration read from _site.yml}

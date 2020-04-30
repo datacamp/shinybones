@@ -29,7 +29,8 @@ Preview data in a datatable
 }
 }
 \seealso{
-Other preview: \code{\link{preview_component}},
-  \code{\link{preview_module}}
+Other preview: 
+\code{\link{preview_component}()},
+\code{\link{preview_module}()}
 }
 \concept{preview}

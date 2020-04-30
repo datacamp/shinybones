@@ -5,12 +5,19 @@
 \alias{sb_add_component}
 \title{Add a page module}
 \usage{
-sb_add_page(module, text = module,
-  dir_pages = getOption("SB_DIR_PAGES", "pages"), add_to_yaml = FALSE,
-  ...)
+sb_add_page(
+  module,
+  text = module,
+  dir_pages = getOption("SB_DIR_PAGES", "pages"),
+  add_to_yaml = FALSE,
+  ...
+)
 
-sb_add_component(module, dir_pages = getOption("SB_DIR_COMPONENTS",
-  "components"), ...)
+sb_add_component(
+  module,
+  dir_pages = getOption("SB_DIR_COMPONENTS", "components"),
+  ...
+)
 }
 \arguments{
 \item{module}{name of the module}

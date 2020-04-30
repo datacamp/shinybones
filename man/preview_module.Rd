@@ -4,8 +4,15 @@
 \alias{preview_module}
 \title{Preview a shiny module in a shinydashboard}
 \usage{
-preview_module(module, name = "module", use_box = FALSE,
-  title = name, titleWidth = NULL, preview = TRUE, ...)
+preview_module(
+  module,
+  name = "module",
+  use_box = FALSE,
+  title = name,
+  titleWidth = NULL,
+  preview = TRUE,
+  ...
+)
 }
 \arguments{
 \item{module}{The server function of a module or its name.}
@@ -45,7 +52,8 @@ Preview a shiny module in a shinydashboard
 }
 }
 \seealso{
-Other preview: \code{\link{preview_component}},
-  \code{\link{preview_datatable}}
+Other preview: 
+\code{\link{preview_component}()},
+\code{\link{preview_datatable}()}
 }
 \concept{preview}

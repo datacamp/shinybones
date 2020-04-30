@@ -2,20 +2,38 @@
 % Please edit documentation in R/runapp.R
 \name{sb_create_app}
 \alias{sb_create_app}
-\title{Run a ShinyDashboard App created using ShinyBones}
+\title{Run a shinydashboard app created using shinybones}
 \usage{
-sb_create_app(app_dir = ".",
-  config = yaml::read_yaml(file.path(app_dir, "_site.yml")),
-  data_global = list())
+sb_create_app(app_dir = ".", data_global = list(), ...)
 }
 \arguments{
-\item{app_dir}{The directory containing the app.}
-
-\item{config}{The configuration specifying the layout.}
+\item{app_dir}{Path to directory containing the \code{./_site.yml}
+file that specifies the site's structure.}
 
 \item{data_global}{The global data object that will be passed on to all
 page modules.}
+
+\item{...}{Extra parameters passed to \code{shinyApp}}
 }
 \description{
-Run a ShinyDashboard App created using ShinyBones
+A shinybones app is based on a \code{_site.yml} file that specifies
+modules for each sidebar item or tab.
+}
+\details{
+The configuration file should include \code{name}
+and \code{sidebar}, with the sidebar containing a list of the
+dashboard's tabs.
+
+A site configuration file supports the following tags:
+
+\describe{
+  \item{\code{!expr}}{Provide arbitrary R code to be evaluated}
+  \item{\code{!pin}}{Provide a pin name that can be retrieved, or
+  a string of the form \code{board:pin_name}}
+  \item{\code{!global}}{An accessor for an object in \code{data_global}.}
+}
+}
+\seealso{
+\code{\link{sb_read_yaml}} for the custom tags that can be
+used in the configuration file.
 }
