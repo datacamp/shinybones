@@ -5,9 +5,13 @@
 \alias{module_tabs_ui}
 \title{Generate a tab module}
 \usage{
-module_tabs(tabs, display_tab = function(x) {     TRUE })
+module_tabs(tabs, display_tab = function(x) {
+    TRUE
+})
 
-module_tabs_ui(tabs, display_tab = function(x) {     TRUE })
+module_tabs_ui(tabs, display_tab = function(x) {
+    TRUE
+})
 }
 \arguments{
 \item{tabs}{A list of tabs, where each tab is a list.}

@@ -41,9 +41,10 @@ sb_create_sidebar <- function(config, data_global,
 
 #' Create conditional panels
 #'
+#' @param config Dashboard configuration read from _site.yml
+#' @param data_global Global data
 #'
 #' @export
-#' @inheritParams sb_create_app
 sb_create_sidebar_conditional_panels <- function(config,
                                                  data_global = list()){
   modules <- get_modules(config)

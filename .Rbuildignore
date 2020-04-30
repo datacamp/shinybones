@@ -5,3 +5,4 @@
 ^\.Rproj\.user$
 ^\.travis\.yml$
 pkgdown/*
+man-roxygen

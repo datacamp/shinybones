@@ -4,8 +4,9 @@
 \alias{sb_create_sidebar}
 \title{Create sidebar}
 \usage{
-sb_create_sidebar(config, data_global, display_page = function(x) {    
-  TRUE })
+sb_create_sidebar(config, data_global, display_page = function(x) {
+    TRUE
+})
 }
 \arguments{
 \item{config}{Dashboard configuration read from _site.yml}

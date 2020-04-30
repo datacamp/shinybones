@@ -26,7 +26,8 @@ Preview a UI component in a ShinyDashboard
 }
 }
 \seealso{
-Other preview: \code{\link{preview_datatable}},
-  \code{\link{preview_module}}
+Other preview: 
+\code{\link{preview_datatable}()},
+\code{\link{preview_module}()}
 }
 \concept{preview}
